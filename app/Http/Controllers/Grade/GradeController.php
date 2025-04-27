@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Grade;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Grade as GradeRequest;
 
 class GradeController extends Controller
 {
@@ -13,7 +14,8 @@ class GradeController extends Controller
      */
     public function index()
     {
-        return view('pages.Grades.grades');
+        $Grades = Grade::all();
+        return view('pages.Grades.grades' , compact('Grades'));
     }
 
     /**
@@ -27,9 +29,24 @@ class GradeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(GradeRequest $request)
     {
-        //
+
+        try {
+            $validated = $request->validated();
+        $Grade = new Grade();
+        $Grade->Name = ['en' => $request->Name_en, 'ar' => $request->Name];
+        $Grade->Notes = $request->Notes;
+        $Grade->save();
+        toastr()->success(trans('message.success'));
+
+            return redirect()->route('grade.index');
+        } catch (\Throwable $e) {
+           return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+
+
+
     }
 
     /**

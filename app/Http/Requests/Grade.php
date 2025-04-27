@@ -22,7 +22,16 @@ class Grade extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "Name"=>"required|max:255",
+            "Name_en"=>"required|max:255",
+            "Notes"=>"required",
+        ];
+    }
+    public function messages()
+    {
+        return [
+            "Name.required"=>trans("validation.required"),
+            "Notes.required"=>trans("validation.required"),
         ];
     }
 }

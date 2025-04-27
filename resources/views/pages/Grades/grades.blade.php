@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('css')
-
+@toastr_css
 @section('title')
     {{ trans('main_trans.Grades') }}
 @stop
@@ -25,38 +25,97 @@
 @section('content')
 <!-- row -->
 <div class="row">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="col-xl-12 mb-30">
       <div class="card card-statistics h-100">
         <div class="card-body">
+            <button type="button" class="btn btn-success mb-3 font-bold" style="font-size: 20px" data-toggle="modal" data-target="#exampleModal">
+                {{ trans('Grades_trans.add_Grade') }}
+            </button>
+        <br><br>
           <div class="table-responsive">
           <table id="datatable" class="table table-striped table-bordered p-0">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                 
+                    <th>#</th>
+                    <th>{{ trans('Grades_trans.Name') }}</th>
+                    <th>{{ trans('Grades_trans.Notes') }}</th>
+                    <th>{{ trans('Grades_trans.Processes') }}</th>
+
                 </tr>
             </thead>
             <tbody>
+
+                @foreach ($Grades as $key => $value)
+
+
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-
+                    <td>{{ ++$key }}</td>
+                    <td>{{ $value->Name }}</td>
+                    <td>{{ $value->Notes }}</td>
+                    <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                        data-target="#edit{{ $value->id }}" title="{{ trans('Grades_trans.Edit') }}"><i class="fa fa-edit"></i></button>
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
+                        data-target="#delete{{ $value->id }}" title="{{ trans('Grades_trans.Delete') }}"><i class="fa fa-trash"></i></button>
+                </td>
                 </tr>
-
+@endforeach
 
          </table>
         </div>
         </div>
       </div>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            <form action="{{ route('grade.store') }}" method="post">
+                @csrf
+                <div class=" d-flex justify-content-between">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">{{ trans('Grades_trans.Name_Grade_ar') }}</label>
+                        <input type="text" class="form-control" name="Name" id="recipient-name" >
+                    </div>
+                    <div class="form-group">
+
+                        <label for="recipient-name" class="col-form-label">{{ trans('Grades_trans.Name_Grade_en') }}</label>
+                        <input type="text" class="form-control" name="Name_en" id="recipient-name" >
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label for="message-text" class="col-form-label">{{ trans('Grades_trans.Notes') }}</label>
+                    <textarea class="form-control" name="Notes" id="message-text" ></textarea>
+                </div>
+                <div class="modal-footer">
+                <button type="submit" class="btn btn-secondary" data-dismiss="modal">{{ trans('Grades_trans.Close') }}</button>
+                <button type="submit" class="btn btn-success">{{ trans('Grades_trans.submit') }}</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
 <!-- row closed -->
 @endsection
 @section('js')
-
+    @jquery
+    @toastr_js
+    @toastr_render
 @endsection
