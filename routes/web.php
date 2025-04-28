@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Grade\GradeController;
+use App\Http\Controllers\ClassRooms\ClassRoomsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
@@ -25,6 +26,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     });
 
     Route::resource('grade', GradeController::class);
+    Route::resource('classRoom', ClassRoomsController::class);
 
 
     require __DIR__.'/auth.php';
