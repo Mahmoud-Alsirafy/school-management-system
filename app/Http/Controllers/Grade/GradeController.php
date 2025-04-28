@@ -92,7 +92,7 @@ class GradeController extends Controller
     public function destroy(Grade $grade)
     {
         $Grades = Grade::findOrFail($grade->id)->delete();
-        toastr()->success(trans('message.delete'));
+        toastr()->warning(trans('message.delete'));
         return redirect()->route('grade.index');
 
     }

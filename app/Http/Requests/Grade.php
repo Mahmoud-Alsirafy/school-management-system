@@ -24,7 +24,6 @@ class Grade extends FormRequest
         return [
             "Name"=>"required|max:255",
             "Name_en"=>"required|max:255",
-            "Notes"=>"required",
         ];
     }
     public function messages()
