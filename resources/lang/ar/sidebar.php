@@ -2,6 +2,6 @@
 
 return [
 
-   "dashboard" => "لوحة التحكم",
+   "dashboard" => "لوحة التحكم",'Logoff' => 'تسجيل خروج',
 
 ];

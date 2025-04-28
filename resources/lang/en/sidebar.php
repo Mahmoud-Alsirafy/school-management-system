@@ -2,5 +2,5 @@
 
 return [
 
-    "dashboard" => "Dashboard",
+    "dashboard" => "Dashboard",'Logoff' => 'Logoff',
 ];
