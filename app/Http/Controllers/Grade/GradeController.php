@@ -31,6 +31,10 @@ class GradeController extends Controller
      */
     public function store(GradeRequest $request)
     {
+        if(Grade::where('Name->ar',$request->Name)->orWhere('Name->en',$request->Name_en)->exists()){
+            toastr()->error(trans('Grades_trans.exists'));
+            return redirect()->route('grade.index');
+        }
 
         try {
             $validated = $request->validated();
@@ -70,6 +74,8 @@ class GradeController extends Controller
      */
     public function update(Request $request)
     {
+
+
         try {
 
         $Grades = Grade::findOrFail($request->id);
