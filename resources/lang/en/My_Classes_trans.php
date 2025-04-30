@@ -13,7 +13,7 @@ return [
     'submit' => 'submit',
     'required_ar'=>'Please Enter The class Name in Arabic',
     'required_en'=>'Please Enter The class Name in English',
-    'Name_class_en'=>'Name class en',
+    'Name_class'=>'Name class en',
     'Name_Grade'=>'Name Grade',
     'add_row'=>'add row',
     'delete_row'=>'Delete row',
