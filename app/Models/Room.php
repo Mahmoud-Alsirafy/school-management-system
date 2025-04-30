@@ -4,15 +4,15 @@ namespace App\Models;
 
 use App\Models\Grade;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations;
 
 class Room extends Model
 {
+    protected $table = 'Classrooms';
+    public $timestamps = true;
 
-
-    public function Grade()
+    public function Grades()
     {
-        return $this->belongsTo(Grade::class);
+        return $this->belongsTo('Grade', 'Grade_id');
     }
 
 }

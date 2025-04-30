@@ -48,10 +48,10 @@
                     </thead>
                     <tbody>
                         <?php $i = 0; ?>
-                        @foreach ($My_Classes as $My_Class)
+                        @foreach ($My_Classes as $key => $My_Class)
                             <tr>
-                                <?php $i++; ?>
-                                <td>{{ $i }}</td>
+
+                                <td>{{ ++$key }}</td>
                                 <td>{{ $My_Class->Name }}</td>
                                 <td>{{ $My_Class->Grades->Name }}</td>
                                 <td>
@@ -185,7 +185,7 @@
             </div>
             <div class="modal-body">
 
-                <form class=" row mb-30" action="{{ route('Classrooms.store') }}" method="POST">
+                <form class=" row mb-30" action="" method="POST">
                     @csrf
 
                     <div class="card-body">

@@ -14,9 +14,9 @@ class ClassRoomsController extends Controller
      */
     public function index()
     {
-       $My_Class=Room::all();
+       $My_Classes=Room::all();
        $Grades = Grade::all();
-        return view('pages.ClassRoom.class' , compact('My_Class','Grades'));
+        return view('pages.ClassRoom.class' , compact('Grades','My_Classes'));
     }
 
     /**
@@ -32,7 +32,7 @@ class ClassRoomsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "vsvsdiovs";
     }
 
     /**

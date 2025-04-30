@@ -26,7 +26,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
     });
 
     Route::resource('grade', GradeController::class);
-    Route::resource('class', ClassRoomsController::class);
+    Route::resource('classrooms', ClassRoomsController::class);
 
 
     require __DIR__.'/auth.php';
