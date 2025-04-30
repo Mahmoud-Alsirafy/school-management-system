@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\ClassRooms;
 
-use App\Http\Controllers\Controller;
+use App\Models\Room;
+use App\Models\Grade;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ClassRoomsController extends Controller
 {
@@ -12,7 +14,9 @@ class ClassRoomsController extends Controller
      */
     public function index()
     {
-       return "hello";
+       $My_Class=Room::all();
+       $Grades = Grade::all();
+        return view('pages.ClassRoom.class' , compact('My_Class','Grades'));
     }
 
     /**
