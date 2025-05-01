@@ -8,7 +8,7 @@
 @endsection
 @section('page-header')
 <!-- breadcrumb -->
-<<<<<<< HEAD
+
 @section('PageTitle')
 {{ trans('My_Classes_trans.title_page') }}
 @stop
@@ -18,7 +18,7 @@
 @section('content')
 <!-- row -->
 <div class="row">
-<<<<<<< HEAD
+
 
 <div class="col-xl-12 mb-30">
     <div class="card card-statistics h-100">
@@ -51,13 +51,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $i = 0; ?>
+
                         @foreach ($My_Classes as $key => $My_Class)
                             <tr>
 
                                 <td>{{ ++$key }}</td>
-                                <td>{{ $My_Class->Name }}</td>
-                                <td>{{ $My_Class->Grades->Name }}</td>
+                                <td>{{ $My_Class->Name}}</td>
+                                <td>{{ $My_Class->Grades->Name}}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
                                         data-target="#edit{{ $My_Class->id }}"
@@ -86,7 +86,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <!-- add_form -->
-                                            <form action="{{ route('Grades.update', 'test') }}" method="post">
+                                            <form action="{{ route('classrooms.update', 'test') }}" method="post">
                                                 {{ method_field('patch') }}
                                                 @csrf
                                                 <div class="row">
@@ -149,7 +149,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ route('Grades.destroy', 'test') }}" method="post">
+                                            <form action="{{ route('classrooms.destroy', 'test') }}" method="post">
                                                 {{ method_field('Delete') }}
                                                 @csrf
                                                 {{ trans('Grades_trans.Warning_Grade') }}
@@ -203,7 +203,7 @@
                                             <label for="Name"
                                                 class="mr-sm-2">{{ trans('My_Classes_trans.Name_class') }}
                                                 :</label>
-                                            <input class="form-control" type="text" name="Name" required />
+                                            <input class="form-control" type="text" name="Name"  />
                                         </div>
 
 
@@ -211,7 +211,7 @@
                                             <label for="Name"
                                                 class="mr-sm-2">{{ trans('My_Classes_trans.Name_class_en') }}
                                                 :</label>
-                                            <input class="form-control" type="text" name="Name_class_en" required />
+                                            <input class="form-control" type="text" name="Name_class_en"  />
                                         </div>
 
 
@@ -274,3 +274,7 @@
 <!-- row closed -->
 @endsection
 @section('js')
+@jquery
+@toastr_js
+@toastr_render
+@endsection

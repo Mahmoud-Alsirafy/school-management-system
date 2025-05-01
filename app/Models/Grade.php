@@ -18,8 +18,8 @@ class Grade extends Model
     protected $table = 'Grades';
     public $timestamps = true;
 
-    public function class()
+    public function Sections()
     {
-        return $this->hasMany(Room::class);
+        return $this->hasMany('App\Models\Room', 'Grade_id');
     }
 }
