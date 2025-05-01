@@ -22,15 +22,17 @@ class Grade extends FormRequest
     public function rules(): array
     {
         return [
-            "Name"=>"required|max:255",
-            "Name_en"=>"required|max:255",
+            'Name' => 'required',
+            'Name_en' => 'required'
         ];
     }
     public function messages()
     {
         return [
-            "Name.required"=>trans("validation.required"),
-            "Notes.required"=>trans("validation.required"),
+           'Name.required' => trans('validation.required'),
+            'Name.unique' => trans('validation.unique'),
+            'Name_en.required' => trans('validation.required'),
+            'Name_en.unique' => trans('validation.unique'),
         ];
     }
 }
