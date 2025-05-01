@@ -90,7 +90,7 @@
                                        </div>
                                        <div class="modal-body">
                                            <!-- add_form -->
-                                           <form action="{{route('grade.update',$Grade->id)}}" method="post">
+                                           <form action="{{route('grade.update','test')}}" method="post">
                                                {{method_field('patch')}}
                                                @csrf
                                                <div class="row">
@@ -153,7 +153,7 @@
                                            </button>
                                        </div>
                                        <div class="modal-body">
-                                           <form action="{{route('grade.destroy',$Grade->id)}}" method="post">
+                                           <form action="{{route('grade.destroy','test')}}" method="post">
                                                {{method_field('Delete')}}
                                                @csrf
                                                {{ trans('Grades_trans.Warning_Grade') }}

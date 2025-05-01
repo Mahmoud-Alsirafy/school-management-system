@@ -74,7 +74,7 @@ class GradeController extends Controller
      */
     public function update(Request $request)
     {
-if(Grade::where('Name->ar',$request->Name)->orWhere('Name->en',$request->Name_en)->exists()){
+        if(Grade::where('Name->ar',$request->Name)->orWhere('Name->en',$request->Name_en)->exists()){
             toastr()->error(trans('Grades_trans.exists'));
             return redirect()->route('grade.index');
         }
@@ -98,9 +98,9 @@ if(Grade::where('Name->ar',$request->Name)->orWhere('Name->en',$request->Name_en
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Grade $grade)
+    public function destroy(Request $request)
     {
-        $Grades = Grade::findOrFail($grade->id)->delete();
+        $Grades = Grade::findOrFail($request->id)->delete();
         toastr()->warning(trans('message.delete'));
         return redirect()->route('grade.index');
 

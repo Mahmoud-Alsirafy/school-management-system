@@ -47,12 +47,11 @@ class ClassRoomsController extends Controller
 
                 $My_Classes = new Room();
 
-                $My_Classes->Name_Class = [$List_Class['Name_class_en'] =>'en' ,  $List_Class['Name']=>'ar' ];
+                $My_Classes->Name_Class = [$List_Class['Name_class_en'] => 'en',  $List_Class['Name'] => 'ar'];
 
                 $My_Classes->Grade_id = $List_Class['Grade_id'];
 
                 $My_Classes->save();
-
             }
 
             toastr()->success(trans('message.success'));
@@ -83,14 +82,35 @@ class ClassRoomsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // return $request;
+        // if(Room::where('Name_Class',$request->Name)->orWhere('Name_Class',$request->Name_en)->exists()){
+        //     toastr()->error(trans('Grades_trans.exists'));
+        //     return redirect()->route('classrooms.index');
+        // }
+
+        try {
+
+        $ClassRooms = Room::findOrFail($request->id);
+        $ClassRooms->update([
+        $ClassRooms->Name_Class = ['en' => $request->Name_en, 'ar' => $request->Name],
+        $ClassRooms->Grade_id = $request->Grade_id,
+        ]);
+        $ClassRooms->save();
+        toastr()->success(trans('message.update'));
+
+            return redirect()->route('classrooms.index');
+        } catch (\Throwable $e) {
+           return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $Grades = Room::findOrFail($request->id)->delete();
+        toastr()->warning(trans('message.delete'));
+        return redirect()->route('classrooms.index');
     }
 }
