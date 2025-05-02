@@ -32,6 +32,7 @@
         .language-switcher {
             font-family: 'Cairo', sans-serif;
         }
+
         .lang-toggle {
             background-color: #f4f4f4;
             color: #333;
@@ -42,9 +43,11 @@
             font-weight: bold;
             transition: 0.3s;
         }
+
         .lang-toggle:hover {
             background-color: #e0e0e0;
         }
+
         .lang-menu {
             display: none;
             position: absolute;
@@ -59,6 +62,7 @@
             z-index: 999;
             min-width: 120px;
         }
+
         .lang-menu li a {
             display: block;
             padding: 10px;
@@ -67,9 +71,11 @@
             font-weight: 500;
             transition: 0.3s;
         }
+
         .lang-menu li a:hover {
             background-color: #f0f0f0;
         }
+
         .language-switcher:hover .lang-menu {
             display: block;
         }
@@ -102,7 +108,7 @@
             <div class="page-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h4 class="mb-0">Dashboard</h4>
+                        <h4 class="mb-0"> {{ trans('main_trans.Dashboard') }}</h4>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
@@ -122,13 +128,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Visitors</p>
+                                    <p class="card-text text-dark">{{trans('main_trans.Visitors')}}</p>
                                     <h4>65,650</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> 81% lower
-                                growth
+                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> 81%{{trans('main_trans.lower growth')}}
                             </p>
                         </div>
                     </div>
@@ -143,12 +148,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Orders</p>
+                                    <p class="card-text text-dark">{{trans('main_trans.Orders')}}</p>
                                     <h4>656</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total sales
+                                <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> {{trans('main_trans.Total sales')}}
                             </p>
                         </div>
                     </div>
@@ -163,12 +168,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Revenue</p>
+                                    <p class="card-text text-dark">{{trans('main_trans.Revenue')}}</p>
                                     <h4>$65656</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week
+                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> {{trans('main_trans.Sales Per Week')}}
                             </p>
                         </div>
                     </div>
@@ -183,12 +188,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Followers</p>
+                                    <p class="card-text text-dark">{{trans('main_trans.Followers')}}</p>
                                     <h4>62,500+</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
+                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> {{trans('main_trans.Just Updated')}}
                             </p>
                         </div>
                     </div>
@@ -203,13 +208,13 @@
                             <button type="button" class="dropdown-toggle-split text-muted" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"><i class="ti-more"></i></button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#"><i class="text-primary ti-reload"></i>Refresh</a>
-                                <a class="dropdown-item" href="#"><i class="text-secondary ti-eye"></i>View
+                                <a class="dropdown-item" href="#"><i class="text-primary ti-reload"></i>{{trans('main_trans.Refresh')}}</a>
+                                <a class="dropdown-item" href="#"><i class="text-secondary ti-eye"></i>{{trans('main_trans.View')}}
                                     all</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Market summary</h5>
+                            <h5 class="card-title">{{trans('main_trans.Market summary')}}</h5>
                             <h4>$50,500 </h4>
                             <div class="row mt-20">
                                 <div class="col-4">
@@ -243,15 +248,15 @@
                         <div class="card-body">
                             <div class="d-block d-md-flexx justify-content-between">
                                 <div class="d-block">
-                                    <h5 class="card-title">Site Visits Growth </h5>
+                                    <h5 class="card-title">{{trans('main_trans.Site Visits Growth')}} </h5>
                                 </div>
                                 <div class="d-flex">
                                     <div class="clearfix mr-30">
-                                        <h6 class="text-success">Income</h6>
+                                        <h6 class="text-success">{{trans('main_trans.Income')}}</h6>
                                         <p>+584</p>
                                     </div>
                                     <div class="clearfix  mr-50">
-                                        <h6 class="text-danger"> Outcome</h6>
+                                        <h6 class="text-danger">{{trans('main_trans.Outcome')}} </h6>
                                         <p>-255</p>
                                     </div>
                                 </div>
@@ -265,11 +270,11 @@
                 <div class="col-xl-4 mb-30">
                     <div class="card h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Customer Feedback </h5>
+                            <h5 class="card-title">{{trans('main_trans.Customer Feedback')}} </h5>
                             <div class="row mb-30">
                                 <div class="col-md-6">
                                     <div class="clearfix">
-                                        <p class="mb-10 float-left">Positive</p>
+                                        <p class="mb-10 float-left">{{trans('main_trans.Positive')}}</p>
                                         <i class="mb-10 text-success float-right fa fa-arrow-up"> </i>
                                     </div>
                                     <div class="progress progress-small">
@@ -280,7 +285,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="clearfix">
-                                        <p class="mb-10 float-left">Negative</p>
+                                        <p class="mb-10 float-left">{{trans('main_trans.Negative')}}</p>
                                         <i class="mb-10 text-danger float-right fa fa-arrow-down"> </i>
                                     </div>
                                     <div class="progress progress-small">
@@ -304,18 +309,18 @@
                             <div class="tab nav-border" style="position: relative;">
                                 <div class="d-block d-md-flex justify-content-between">
                                     <div class="d-block w-100">
-                                        <h5 class="card-title">Best Sellers</h5>
+                                        <h5 class="card-title">{{trans('main_trans.Best Sellers')}}</h5>
                                     </div>
                                     <div class="d-block d-md-flex nav-tabs-custom">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active show" id="months-tab" data-toggle="tab"
                                                     href="#months" role="tab" aria-controls="months"
-                                                    aria-selected="true"> Months</a>
+                                                    aria-selected="true"> {{trans('main_trans.Months')}}</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="year-tab" data-toggle="tab" href="#year"
-                                                    role="tab" aria-controls="year" aria-selected="false">Year
+                                                    role="tab" aria-controls="year" aria-selected="false">{{trans('main_trans.Year')}}
                                                 </a>
                                             </li>
                                         </ul>
@@ -329,18 +334,17 @@
                                                 <img class="img-fluid" src="images/blog/05.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">Supercharge your motivation</h6>
-                                                <p class="sm-mb-5 d-block">I truly believe Augustine’s words are
-                                                    true. </p>
-                                                <span class="mb-0">by - <b class="text-info">PotenzaUser</b></span>
+                                                <h6 class="mb-0 sm-mt-5">{{trans('main_trans.Supercharge your motivation')}}</h6>
+                                                <p class="sm-mb-5 d-block">{{trans('main_trans.I truly believe Augustine’s words are true.')}} </p>
+                                                <span class="mb-0">by - <b class="text-info">{{trans('main_trans.PotenzaUser')}}</b></span>
                                             </div>
                                             <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
                                                 <h5 class="text-primary mb-0"><b>45,436</b></h5>
-                                                <span>Sales</span>
+                                                <span>{{trans('main_trans.sales')}}</span>
                                             </div>
                                             <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
+                                                <span>{{trans('main_trans.Revenue')}}</span>
                                                 <h5 class="text-secondary mb-0"><b>$05,236</b></h5>
-                                                <span>Revenue</span>
                                             </div>
                                         </div>
                                         <div class="row mb-30">
@@ -348,9 +352,8 @@
                                                 <img class="img-fluid" src="images/blog/02.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">Helen keller a teller seller</h6>
-                                                <p class="sm-mb-5 d-block">We also know those epic stories,
-                                                    those modern.</p>
+                                                <h6 class="mb-0 sm-mt-5">{{trans('main_trans.Helen keller a teller seller')}}</h6>
+                                                <p class="sm-mb-5 d-block">{{trans('main_trans.We also know those epic stories,those modern.')}}</p>
                                                 <span class="mb-0">by - <b class="text-warning">WebminUser</b>
                                                 </span>
                                             </div>
@@ -360,7 +363,7 @@
                                             </div>
                                             <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
                                                 <h5 class="text-danger mb-0"><b>$166</b></h5>
-                                                <span>Revenue</span>
+                                                <span>{{trans('main_trans.')}}Revenue</span>
                                             </div>
                                         </div>
                                         <div class="row mb-30">
@@ -368,8 +371,8 @@
                                                 <img class="img-fluid" src="images/blog/03.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">The other virtues practice</h6>
-                                                <p class="sm-mb-5 d-block">One of the most difficult aspects of
+                                                <h6 class="mb-0 sm-mt-5">{{trans('main_trans.')}}The other virtues practice</h6>
+                                                <p class="sm-mb-5 d-block">{{trans('main_trans.')}}One of the most difficult aspects of
                                                     achieving. </p>
                                                 <span class="mb-0">by - <b class="text-danger">TheCorps</b>
                                                 </span>
@@ -388,15 +391,15 @@
                                                 <img class="img-fluid" src="images/blog/04.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">You will begin to realise</h6>
-                                                <p class="sm-mb-5 d-block">Remind yourself you have nowhere to
+                                                <h6 class="mb-0 sm-mt-5">{{trans('main_trans.')}}You will begin to realise</h6>
+                                                <p class="sm-mb-5 d-block">{{trans('main_trans.')}}Remind yourself you have nowhere to
                                                     go except. </p>
                                                 <span class="mb-0">by - <b class="text-success">PGSinfotech</b>
                                                 </span>
                                             </div>
                                             <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
                                                 <h5 class="text-dark mb-0"><b>5,446</b></h5>
-                                                <span>Sales</span>
+                                                <span>{{trans('main_trans.')}}Sales</span>
                                             </div>
                                             <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
                                                 <h5 class="text-success mb-0"><b>$436</b></h5>
@@ -410,8 +413,8 @@
                                                 <img class="img-fluid" src="images/blog/09.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">Walk out 10 years into</h6>
-                                                <p class="sm-mb-5 d-block">Understanding the price and having
+                                                <h6 class="mb-0 sm-mt-5">{{trans('main_trans.')}}Walk out 10 years into</h6>
+                                                <p class="sm-mb-5 d-block">{{trans('main_trans.')}}Understanding the price and having
                                                     the willingness to pay. </p>
                                                 <span class="mb-0">by - <b class="text-danger">TheZayka</b>
                                                 </span>
@@ -430,10 +433,10 @@
                                                 <img class="img-fluid" src="images/blog/06.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">Step out on to the path</h6>
-                                                <p class="sm-mb-5 d-block">Success to you and then pull it out
+                                                <h6 class="mb-0 sm-mt-5">{{trans('main_trans.')}}Step out on to the path</h6>
+                                                <p class="sm-mb-5 d-block">{{trans('main_trans.')}}Success to you and then pull it out
                                                     when you are.</p>
-                                                <span class="mb-0">by - <b class="text-info">CarDealer</b>
+                                                <span class="mb-0">by - <b class="text-info">{{trans('main_trans.')}}CarDealer</b>
                                                 </span>
                                             </div>
                                             <div class="col-md-2 col-sm-6 col-6 sm-mt-20">
@@ -450,8 +453,8 @@
                                                 <img class="img-fluid" src="images/blog/07.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">Briefly imagine that you</h6>
-                                                <p class="sm-mb-5 d-block">Motivators for your personality and
+                                                <h6 class="mb-0 sm-mt-5">{{trans('main_trans.')}}Briefly imagine that you</h6>
+                                                <p class="sm-mb-5 d-block">{{trans('main_trans.')}}Motivators for your personality and
                                                     your personal goals. </p>
                                                 <span class="mb-0">by - <b class="text-success">SamMartin</b>
                                                 </span>
@@ -470,8 +473,8 @@
                                                 <img class="img-fluid" src="images/blog/08.jpg" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
-                                                <h6 class="mb-0 sm-mt-5">You continue doing what</h6>
-                                                <p class="sm-mb-5 d-block">The first thing to remember about
+                                                <h6 class="mb-0 sm-mt-5">{{trans('main_trans.')}}You continue doing what</h6>
+                                                <p class="sm-mb-5 d-block">{{trans('main_trans.')}}The first thing to remember about
                                                     success is that. </p>
                                                 <span class="mb-0">by - <b class="text-warning">Cosntro</b>
                                                 </span>
@@ -496,7 +499,7 @@
                 <div class="col-xl-4 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Best Selling Items</h5>
+                            <h5 class="card-title">{{trans('main_trans.')}}Best Selling Items</h5>
                             <ul class="list-unstyled">
                                 <li class="mb-20">
                                     <div class="media">
@@ -504,9 +507,9 @@
                                             <img class="img-fluid mr-15 avatar-small" src="images/item/01.png" alt="">
                                         </div>
                                         <div class="media-body">
-                                            <h6 class="mt-0 mb-0">Car dealer <span class="float-right text-danger">
+                                            <h6 class="mt-0 mb-0">{{trans('main_trans.')}}Car dealer <span class="float-right text-danger">
                                                     8,561</span> </h6>
-                                            <p>Automotive WordPress Theme </p>
+                                            <p>{{trans('main_trans.')}}Automotive WordPress Theme </p>
                                         </div>
                                     </div>
                                     <div class="divider dotted mt-20"></div>
@@ -545,7 +548,7 @@
                                         <div class="media-body">
                                             <h6 class="mt-0 mb-0">Sam martin <span
                                                     class="float-right text-warning">6,213 </span></h6>
-                                            <p>Personal vCard Resume WordPress Theme </p>
+                                            <p>{{trans('main_trans.')}}Personal vCard Resume WordPress Theme </p>
                                         </div>
                                     </div>
                                 </li>
@@ -650,18 +653,18 @@
                                 </a>
                                 <div id="external-events" class="m-t-20">
                                     <br>
-                                    <p class="text-muted">Drag and drop your event or click in the calendar</p>
+                                    <p class="text-muted">{{trans('main_trans.')}}Drag and drop your event or click in the calendar</p>
                                     <div class="external-event bg-success fc-event">
-                                        <i class="fa fa-circle mr-2 vertical-middle"></i>New Theme Release
+                                        <i class="fa fa-circle mr-2 vertical-middle"></i>{{trans('main_trans.')}}New Theme Release
                                     </div>
                                     <div class="external-event bg-info fc-event">
-                                        <i class="fa fa-circle mr-2 vertical-middle"></i>My Event
+                                        <i class="fa fa-circle mr-2 vertical-middle"></i>{{trans('main_trans.')}}My Event
                                     </div>
                                     <div class="external-event bg-warning fc-event">
-                                        <i class="fa fa-circle mr-2 vertical-middle"></i>Meet manager
+                                        <i class="fa fa-circle mr-2 vertical-middle"></i>{{trans('main_trans.')}}Meet manager
                                     </div>
                                     <div class="external-event bg-danger fc-event">
-                                        <i class="fa fa-circle mr-2 vertical-middle"></i>Create New theme
+                                        <i class="fa fa-circle mr-2 vertical-middle"></i>{{trans('main_trans.')}}Create New theme
                                     </div>
                                 </div>
                             </div>
@@ -673,17 +676,17 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Add New Event</h5>
+                                        <h5 class="modal-title">{{trans('main_trans.')}}Add New Event</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <div class="modal-body p-20"></div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-success save-event">Create
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">{{trans('main_trans.')}}Close</button>
+                                        <button type="button" class="btn btn-success save-event">{{trans('main_trans.')}}Create
                                             event</button>
                                         <button type="button" class="btn btn-danger delete-event"
-                                            data-dismiss="modal">Delete</button>
+                                            data-dismiss="modal">{{trans('main_trans.')}}Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -693,7 +696,7 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Add a category</h5>
+                                        <h5 class="modal-title">{{trans('main_trans.')}}Add a category</h5>
                                         <button type="button" class="close" data-dismiss="modal"
                                             aria-hidden="true">&times;</button>
                                     </div>
@@ -701,12 +704,12 @@
                                         <form>
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label class="control-label">Category Name</label>
+                                                    <label class="control-label">{{trans('main_trans.')}}Category Name</label>
                                                     <input class="form-control form-white" placeholder="Enter name"
                                                         type="text" name="category-name" />
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label class="control-label">Choose Category Color</label>
+                                                    <label class="control-label">{{trans('main_trans.')}}Choose Category Color</label>
                                                     <select class="form-control form-white"
                                                         data-placeholder="Choose a color..." name="category-color">
                                                         <option value="success">Success</option>
@@ -720,9 +723,9 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">{{trans('main_trans.')}}Close</button>
                                         <button type="button" class="btn btn-success save-category"
-                                            data-dismiss="modal">Save</button>
+                                            data-dismiss="modal">{{trans('main_trans.')}}Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -737,7 +740,7 @@
  footer -->
 
             @include('layouts.footer')
-        </div><!-- main content wrapper end-->
+        </div><<!-- main content wrapper end-->
     </div>
     </div>
     </div>
