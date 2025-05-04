@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Grade;
 
+use App\Models\Room;
 use App\Models\Grade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -100,9 +101,19 @@ class GradeController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Grades = Grade::findOrFail($request->id)->delete();
+
+        $Class_id= Room::where('Grade_id', $request->id)->pluck('Grade_id');
+
+        if($Class_id->count() == 0){
+           $Grades = Grade::findOrFail($request->id)->delete();
         toastr()->warning(trans('message.delete'));
         return redirect()->route('grade.index');
+        }
+        else{
+            toastr()->error(trans('Grades_trans.delete grade error'));
+            return redirect()->route('grade.index');
+        }
+
 
     }
 }

@@ -120,4 +120,4 @@ return [
     'PotenzaUser' => 'PotenzaUser',
     'Helen keller a teller seller' => 'هيلين كيلر بائعة صراف',
     'We also know those epic stories,those modern.' => 'ونحن نعرف أيضًا تلك القصص الملحمية، تلك القصص الحديثة.'
-];
+];  

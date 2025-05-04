@@ -38,7 +38,7 @@
                         </a>
                         <ul id="classes-menu" class="collapse" data-parent="#sidebarnav">
 
-                            <li> <a href="{{ route('classrooms.index') }}">{{ trans('main_trans.List_classes') }} </a> </li>
+                            <li> <a href="{{ route('Classrooms.index') }}">{{ trans('main_trans.List_classes') }} </a> </li>
                             {{-- <li> <a href="calendar-list.html">List Calendar</a> </li> --}}
 
                         </ul>

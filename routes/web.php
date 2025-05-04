@@ -6,16 +6,15 @@ use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\ClassRooms\ClassRoomsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-Route::group(['prefix' => LaravelLocalization::setLocale()], function()
-{
-	/** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-	Route::group(['middleware' => ['guest']], function(){
+Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::group(['middleware' => ['guest']], function () {
         Route::get('/', function () {
             return view('auth.register');
         });
     });
 
-	Route::get('/dashboard', function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -27,12 +26,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
     Route::resource('grade', GradeController::class);
 
-    Route::resource('classrooms', ClassRoomsController::class);
+
+        Route::resource('Classrooms', ClassRoomsController::class);
+        Route::post('delete_all', [ClassRoomsController::class,'delete_all'])->name('delete_all');
+
+        Route::post('Filter_Classes', [ClassRoomsController::class,'Filter_Classes'])->name('Filter_Classes');
 
 
 
-    require __DIR__.'/auth.php';
+
+
+    require __DIR__ . '/auth.php';
 });
-
-
-

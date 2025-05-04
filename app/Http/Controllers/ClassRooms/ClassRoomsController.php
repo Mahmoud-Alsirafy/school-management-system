@@ -7,6 +7,7 @@ use App\Models\Grade;
 use Illuminate\Http\Request;
 use App\Http\Requests\ClassRooms;
 use App\Http\Controllers\Controller;
+use PhpParser\Node\Stmt\Return_;
 
 class ClassRoomsController extends Controller
 {
@@ -51,11 +52,11 @@ class ClassRoomsController extends Controller
 
                 $My_Classes->Grade_id = $List_Class['Grade_id'];
 
-                $My_Classes->save();
+$My_Classes->save();
             }
 
             toastr()->success(trans('message.success'));
-            return redirect()->route('classrooms.index');
+            return redirect()->route('Classrooms.index');
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -85,7 +86,7 @@ class ClassRoomsController extends Controller
         // return $request;
         // if(Room::where('Name_Class',$request->Name)->orWhere('Name_Class',$request->Name_en)->exists()){
         //     toastr()->error(trans('Grades_trans.exists'));
-        //     return redirect()->route('classrooms.index');
+        //     return redirect()->route('Classrooms.index');
         // }
 
         try {
@@ -98,7 +99,7 @@ class ClassRoomsController extends Controller
         $ClassRooms->save();
         toastr()->success(trans('message.update'));
 
-            return redirect()->route('classrooms.index');
+            return redirect()->route('Classrooms.index');
         } catch (\Throwable $e) {
            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
@@ -111,6 +112,23 @@ class ClassRoomsController extends Controller
     {
         $Grades = Room::findOrFail($request->id)->delete();
         toastr()->warning(trans('message.delete'));
-        return redirect()->route('classrooms.index');
+        return redirect()->route('Classrooms.index');
+    }
+
+    public function delete_all(Request $request)
+    {
+        // change from string to array
+            $delete_all_id = explode(",", $request->delete_all_id);
+            // wherein because it's a two thing
+            Room::whereIn('id', $delete_all_id)->Delete();
+            toastr()->error(trans('message.delete'));
+            return redirect()->route('Classrooms.index');
+
+    }
+
+    public function Filter_Classes(Request $request){
+        $Grades = Grade::all();
+        $Search = Room::select('*')->where('Grade_id','=',$request->Grade_id)->get();
+        return view('pages.ClassRoom.class',compact('Grades'))->withDetails($Search);
     }
 }

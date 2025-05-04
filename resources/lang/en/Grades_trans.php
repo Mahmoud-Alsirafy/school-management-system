@@ -19,7 +19,7 @@ return [
     'Close' => 'Close',
     'Name_Grade' => 'Stage Name',
     'Name_Grade_ar' => 'Stage Name Arabic',
-    'Name_Grade_en' => 'Stage Name English'
-
+    'Name_Grade_en' => 'Stage Name English',
+'delete grade error' => 'You can not delete the stage because it contains sections',
 ]
 ?>
