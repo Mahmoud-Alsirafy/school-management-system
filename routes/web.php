@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grade\GradeController;
+use App\Http\Controllers\Section\Sectioncoltroller;
 use App\Http\Controllers\ClassRooms\ClassRoomsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -27,14 +28,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::resource('grade', GradeController::class);
 
 
-        Route::resource('Classrooms', ClassRoomsController::class);
-        Route::post('delete_all', [ClassRoomsController::class,'delete_all'])->name('delete_all');
+    Route::resource('Classrooms', ClassRoomsController::class);
+    Route::post('delete_all', [ClassRoomsController::class, 'delete_all'])->name('delete_all');
 
-        Route::post('Filter_Classes', [ClassRoomsController::class,'Filter_Classes'])->name('Filter_Classes');
-
-
+    Route::post('Filter_Classes', [ClassRoomsController::class, 'Filter_Classes'])->name('Filter_Classes');
 
 
+
+    Route::resource('Sections',Sectioncoltroller::class);
+    Route::get('classes/{id}',[Sectioncoltroller::class,'get_classrooms'])->name('get_classrooms');
 
     require __DIR__ . '/auth.php';
 });

@@ -20,6 +20,6 @@ class Grade extends Model
 
     public function Sections()
     {
-        return $this->hasMany('App\Models\Room', 'Grade_id');
+        return $this->hasMany('App\Models\Section', 'Grade_id');
     }
 }

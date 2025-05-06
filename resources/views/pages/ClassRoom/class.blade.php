@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('css')
     {{-- @toastr_css --}}
-
-
 @section('title')
     {{ trans('My_Classes_trans.title_page') }}
 @stop
@@ -80,12 +78,12 @@
 
                         <?php $i = 0; ?>
 
-                        @foreach ($List_Classes as $My_Class)
+                        @foreach ($My_Classes as $key => $My_Class)
                             <tr>
-                                <?php $i++; ?>
+
                                 <td><input type="checkbox"  value="{{ $My_Class->id }}" class="box1" ></td>
-                                <td>{{ $i }}</td>
-                                <td>{{ $My_Class->Name_class }}</td>
+                                <td>{{ ++$key }}</td>
+                                <td>{{ $My_Class->Name_Class }}</td>
                                 <td>{{ $My_Class->Grades->Name }}</td>
                                 <td>
                                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
@@ -323,8 +321,7 @@
             </div>
 
             <form action="{{ route('delete_all') }}" method="POST">
-                @csrf
-                {{-- @method("POST") --}}
+                {{ csrf_field() }}
                 <div class="modal-body">
                     {{ trans('My_Classes_trans.Warning_Grade') }}
                     <input class="text" type="hidden" id="delete_all_id" name="delete_all_id" value=''>

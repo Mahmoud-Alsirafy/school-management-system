@@ -36,23 +36,21 @@ class ClassRoomsController extends Controller
     public function store(ClassRooms $request)
     {
 
-
-
         $List_Classes = $request->List_Classes;
 
         try {
+
             $validated = $request->validated();
-
-
             foreach ($List_Classes as $List_Class) {
 
                 $My_Classes = new Room();
 
-                $My_Classes->Name_Class = [$List_Class['Name_class_en'] => 'en',  $List_Class['Name'] => 'ar'];
+                $My_Classes->Name_Class = ['en' => $List_Class['Name_class_en'], 'ar' => $List_Class['Name']];
 
                 $My_Classes->Grade_id = $List_Class['Grade_id'];
 
-$My_Classes->save();
+                $My_Classes->save();
+
             }
 
             toastr()->success(trans('message.success'));
@@ -60,6 +58,7 @@ $My_Classes->save();
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
     }
 
     /**
@@ -126,9 +125,9 @@ $My_Classes->save();
 
     }
 
-    public function Filter_Classes(Request $request){
-        $Grades = Grade::all();
-        $Search = Room::select('*')->where('Grade_id','=',$request->Grade_id)->get();
-        return view('pages.ClassRoom.class',compact('Grades'))->withDetails($Search);
-    }
+    // public function Filter_Classes(Request $request){
+    //     $Grades = Grade::all();
+    //     $Search = Room::select('*')->where('Grade_id','=',$request->Grade_id)->get();
+    //     return view('pages.ClassRoom.class',compact('Grades'))->withDetails($Search);
+    // }
 }
