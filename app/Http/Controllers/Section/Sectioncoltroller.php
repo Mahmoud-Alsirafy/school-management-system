@@ -70,17 +70,40 @@ class Sectioncoltroller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(Request $request)
+{
+    try {
+
+
+        $section = Section::findOrFail($request->id);
+
+        $section->update ( [
+            $section->Name_Section = ['en' => $request->Name_Section_En,'ar' => $request->Name_Section_Ar
+            ],
+            $section->Grade_id = $request->Grade_id,
+        $section->Class_id = $request->Class_id,
+            'Status' => isset($request->Status) ? 1 : 2 // تم تبسيط شرط ال Status
+        ]);
+
+        $section->save();
+
+        toastr()->success(trans('message.update'));
+
+        return redirect()->route('Sections.index');
+
+    } catch (\Throwable $e) {
+        return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
+}
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $section = Section::findOrFail($request->id)->delete();
+        toastr()->warning(trans('message.delete'));
+        return redirect()->route('Sections.index');
     }
 //
     public function get_classrooms($id)

@@ -19,16 +19,16 @@ class Section extends Model
 
      // علاقة بين الاقسام والصفوف لجلب اسم الصف في جدول الاقسام
 
-     public function My_class()
+     public function My_classs()
      {
          return $this->belongsTo('App\Models\Room', 'Class_id');
      }
 
-     // علاقة الاقسام مع المعلمين
-    //  public function teachers()
-    //  {
-    //      return $this->belongsToMany('App\Models\Teacher','teacher_section');
-    //  }
+    //  علاقة الاقسام مع المعلمين
+     public function teachers()
+     {
+         return $this->belongsToMany('App\Models\Teacher','teacher_section');
+     }
 
      public function Grades()
      {
