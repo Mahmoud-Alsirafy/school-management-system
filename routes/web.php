@@ -38,5 +38,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::resource('Sections',Sectioncoltroller::class);
     Route::get('classes/{id}',[Sectioncoltroller::class,'get_classrooms'])->name('get_classrooms');
 
+
+Route::get('test',function(){
+    return view('test_bg');
+});
+
+
     require __DIR__ . '/auth.php';
 });
+
+
+
