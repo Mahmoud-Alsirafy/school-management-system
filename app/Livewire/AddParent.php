@@ -42,6 +42,21 @@ class AddParent extends Component
     //     $this->show_table = false;
     // }
 
+
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName, [
+            'Email' => 'required|email',
+            'National_ID_Father' => 'required|string|min:10|max:10|regex:/^[0-9]{10}$/',
+            'Passport_ID_Father' => 'nullable|min:10|max:10',
+            'Phone_Father' => 'required|regex:/^[0-9]{10}$/',
+            'National_ID_Mother' => 'required|string|min:10|max:10|regex:/^[0-9]{10}$/',
+            'Passport_ID_Mother' => 'nullable|min:10|max:10',
+            'Phone_Mother' => 'required|regex:/^[0-9]{10}$/'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.add-parent', [
