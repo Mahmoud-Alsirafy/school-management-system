@@ -28,5 +28,6 @@ return [
     'Edit'=>'Edit',
     'Delete'=>'Delete',
     'Close' => 'Close',
+    'Status_required'=>'Please Select The Status',
 
 ];

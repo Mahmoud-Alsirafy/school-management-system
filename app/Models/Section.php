@@ -12,7 +12,7 @@ class Section extends Model
     use HasTranslations;
 
     public $translatable = ['Name_Section'];
-    protected $fillable=['Name_Section','Grade_id','Class_id'];
+    protected $fillable=['Name_Section','Grade_id','Classroom_id','Status'];
 
     protected $table = 'Sections';
     public $timestamps = true;
@@ -21,7 +21,7 @@ class Section extends Model
 
      public function My_classs()
      {
-         return $this->belongsTo('App\Models\Room', 'Class_id');
+         return $this->belongsTo('App\Models\Room', 'Classroom_id');
      }
 
     //  علاقة الاقسام مع المعلمين

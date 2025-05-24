@@ -29,5 +29,6 @@ return [
     'Edit'=>'تعديل',
     'Delete'=>'حذف',
     'Close' => 'اغلاق',
+    'Status_required'=>'يرجي تحديد الحالة',
 
 ];

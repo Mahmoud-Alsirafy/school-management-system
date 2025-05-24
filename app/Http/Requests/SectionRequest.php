@@ -25,7 +25,7 @@ class SectionRequest extends FormRequest
             "Name_Section_Ar"=>"required",
             "Name_Section_En"=>"required",
             'Grade_id' => 'required',
-            'Class_id' => 'required',
+            'Classroom_id' => 'required',
         ];
     }
     public function messages()
@@ -35,8 +35,7 @@ class SectionRequest extends FormRequest
             'Name_Section_En.required' => trans('Sections_trans.required_en'),
 
             'Grade_id.required' => trans('Sections_trans.Grade_id_required'),
-            'Class_id.required' => trans('Sections_trans.Class_id_required'),
-
-        ];
+            'Classroom_id.required' => trans('Sections_trans.Class_id_required'),
+               ];
     }
 }

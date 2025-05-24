@@ -41,7 +41,7 @@ class Sectioncoltroller extends Controller
         $Section = new Section ();
         $Section->Name_Section = ["en" => $request->Name_Section_En , "ar" => $request->Name_Section_Ar];
         $Section->Grade_id = $request->Grade_id;
-        $Section->Class_id = $request->Class_id;
+        $Section->Classroom_id = $request->Classroom_id;
         $Section->Status = 1;
         $Section -> save();
         toastr()->success(trans('message.success'));
@@ -72,6 +72,7 @@ class Sectioncoltroller extends Controller
      */
     public function update(Request $request)
 {
+    // return $request;
     try {
 
 
@@ -81,8 +82,8 @@ class Sectioncoltroller extends Controller
             $section->Name_Section = ['en' => $request->Name_Section_En,'ar' => $request->Name_Section_Ar
             ],
             $section->Grade_id = $request->Grade_id,
-        $section->Class_id = $request->Class_id,
-            'Status' => isset($request->Status) ? 1 : 2 // تم تبسيط شرط ال Status
+        $section->Classroom_id = $request->Classroom_id,
+            'Status' => $request->Status ? 1 : 2,
         ]);
 
         $section->save();

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("Name_Section");
             $table->Integer("Status");
             $table->bigInteger("Grade_id")->unsigned();
-            $table->bigInteger("Class_id")->unsigned();
+            $table->bigInteger("Classroom_id")->unsigned();
             $table->timestamps();
         });
     }
