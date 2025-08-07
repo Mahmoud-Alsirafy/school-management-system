@@ -41,16 +41,7 @@
 
             <br><br>
 
-                <form action="{{ route('Filter_Classes') }}" method="POST">
-                    {{ csrf_field() }}
-                    <select class="selectpicker" data-style="btn-info" name="Grade_id" required
-                            onchange="this.form.submit()">
-                        <option value="" selected disabled>{{ trans('My_Classes_trans.Search_By_Grade') }}</option>
-                        @foreach ($Grades as $Grade)
-                            <option value="{{ $Grade->id }}">{{ $Grade->Name }}</option>
-                        @endforeach
-                    </select>
-                </form>
+                
 
 
 

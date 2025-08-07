@@ -75,10 +75,7 @@ class GradeController extends Controller
      */
     public function update(Request $request)
     {
-        if(Grade::where('Name->ar',$request->Name)->orWhere('Name->en',$request->Name_en)->exists()){
-            toastr()->error(trans('Grades_trans.exists'));
-            return redirect()->route('grade.index');
-        }
+        
 
         try {
 

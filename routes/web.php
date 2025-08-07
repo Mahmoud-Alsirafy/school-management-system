@@ -53,8 +53,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     require __DIR__ . '/auth.php';
 });
 
-
-     //==============================parents============================
-     Route::view('add_parent','livewire.Show_Form');
+//==============================parents============================
+Route::view('add_parent','livewire.Show_Form');
 
 

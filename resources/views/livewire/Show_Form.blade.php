@@ -2,7 +2,7 @@
 @section('css')
 @livewireStyles
 @section('title')
-    {{ trans('main_trans.Add_Parent') }}
+{{ trans('main_trans.Add_Parent') }}
 @stop
 @endsection
 @section('page-header')

@@ -2,6 +2,7 @@
 
 return [
     'add_parent' => 'add parent',
+    'Show_Table'=>'Show Parent Table',
     'Step1' => 'Father information',
     'Step2' => 'Mother information',
     'Step3' => 'Confirm information',

@@ -82,11 +82,7 @@ class ClassRoomsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // return $request;
-        // if(Room::where('Name_Class',$request->Name)->orWhere('Name_Class',$request->Name_en)->exists()){
-        //     toastr()->error(trans('Grades_trans.exists'));
-        //     return redirect()->route('Classrooms.index');
-        // }
+
 
         try {
 
@@ -125,9 +121,5 @@ class ClassRoomsController extends Controller
 
     }
 
-    // public function Filter_Classes(Request $request){
-    //     $Grades = Grade::all();
-    //     $Search = Room::select('*')->where('Grade_id','=',$request->Grade_id)->get();
-    //     return view('pages.ClassRoom.class',compact('Grades'))->withDetails($Search);
-    // }
+   
 }
