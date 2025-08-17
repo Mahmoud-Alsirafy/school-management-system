@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Database\Seeders\UserTable;
 use Illuminate\Database\Seeder;
 use Database\Seeders\BloodTable;
 use Database\Seeders\ReligionTable;
@@ -24,6 +25,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call(BloodTable::class);
         $this->call(NationalityTable::class);
-        $this ->call(ReligionTable::class);
+        $this->call(ReligionTable::class);
+        $this->call(UserTable::class);
+        $this->call(SpecializationsTable::class);
+        $this->call(GenderTable::class);
+
     }
 }
