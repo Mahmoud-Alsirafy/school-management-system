@@ -117,7 +117,7 @@
                         <div class="media-body">
                             @php
                             if (! Auth::check() || ! Auth::user()->name) {
-                            header('Location: ' . route('logout'));
+                            header('Location: ' . route('logout_get'));
                             exit;
                             }
                             @endphp
