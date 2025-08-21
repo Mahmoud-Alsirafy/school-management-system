@@ -46,6 +46,7 @@ class Sectioncoltroller extends Controller
         $Section->Classroom_id = $request->Classroom_id;
         $Section->Status = 1;
         $Section -> save();
+        // attach only for add not for update because will repate the collom
         $Section->teachers()->attach($request->teacher_id);
         toastr()->success(trans('message.success'));
         return redirect()->route('Sections.index');
@@ -73,32 +74,45 @@ class Sectioncoltroller extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
-{
-    // return $request;
-    try {
+    public function update(SectionRequest $request)
+    {
 
 
-        $section = Section::findOrFail($request->id);
+      try {
+        $validated = $request->validated();
+        $Sections = Section::findOrFail($request->id);
 
-        $section->update ( [
-            $section->Name_Section = ['en' => $request->Name_Section_En,'ar' => $request->Name_Section_Ar
-            ],
-            $section->Grade_id = $request->Grade_id,
-        $section->Classroom_id = $request->Classroom_id,
-            'Status' => $request->Status ? 1 : 2,
-        ]);
+        $Sections->Name_Section = ['ar' => $request->Name_Section_Ar, 'en' => $request->Name_Section_En];
+        $Sections->Grade_id = $request->Grade_id;
+        $Sections->Classroom_id = $request->Classroom_id;
 
-        $section->save();
+        if(isset($request->Status)) {
+          $Sections->Status = 1;
+        } else {
+          $Sections->Status = 2;
+        }
 
-        toastr()->success(trans('message.update'));
+
+         // update pivot tABLE
+          if (isset($request->teacher_id)) {
+            // sync for update becaues will check if the id is uesed and update in him
+              $Sections->teachers()->sync($request->teacher_id);
+          } else {
+              $Sections->teachers()->sync(array());
+          }
+
+
+        $Sections->save();
+        toastr()->success(trans('messages.Update'));
 
         return redirect()->route('Sections.index');
-
-    } catch (\Throwable $e) {
+    }
+    catch
+    (\Exception $e) {
         return redirect()->back()->withErrors(['error' => $e->getMessage()]);
     }
-}
+
+    }
 
     /**
      * Remove the specified resource from storage.

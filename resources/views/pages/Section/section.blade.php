@@ -146,7 +146,7 @@
 
                                                                                 <div class="col">
                                                                                     <label for="inputName" class="control-label">{{ trans('Sections_trans.Name_Class') }}</label>
-                                                                                    <select name="Class_id" class="custom-select">
+                                                                                    <select name="Classroom_id" class="custom-select">
                                                                                         <option value="{{ $list_Sections->My_classs->id }}">
                                                                                             {{ $list_Sections->My_classs->Name_Class }}
                                                                                         </option>
