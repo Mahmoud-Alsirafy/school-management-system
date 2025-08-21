@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Section;
 use App\Models\Room;
 use App\Models\Grade;
 use App\Models\Section;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SectionRequest;
@@ -18,7 +19,8 @@ class Sectioncoltroller extends Controller
     {
         $Grades = Grade::with(['Sections'])->get();
         $list_Grades = Grade::all();
-        return view("pages.Section.section" , compact('Grades','list_Grades'));
+        $teachers = Teacher::all();
+        return view("pages.Section.section" , compact('Grades','list_Grades','teachers'));
 
 
     }
@@ -44,6 +46,7 @@ class Sectioncoltroller extends Controller
         $Section->Classroom_id = $request->Classroom_id;
         $Section->Status = 1;
         $Section -> save();
+        $Section->teachers()->attach($request->teacher_id);
         toastr()->success(trans('message.success'));
         return redirect()->route('Sections.index');
         } catch (\Throwable $e) {

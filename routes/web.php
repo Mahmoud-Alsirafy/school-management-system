@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\Section\Sectioncoltroller;
+use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\ClassRooms\ClassRoomsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -48,6 +49,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::resource('Sections',Sectioncoltroller::class);
     Route::get('classes/{id}',[Sectioncoltroller::class,'get_classrooms'])->name('get_classrooms');
 
+    // ===============================Teacher============================
+
+        Route::resource('Teachers',TeacherController::class);
 
 
     require __DIR__ . '/auth.php';
