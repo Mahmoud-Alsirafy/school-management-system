@@ -13,6 +13,8 @@ return [
     'sections' => 'الاقسام',
     'List_sections' => 'قائمة الاقسام الدراسية',
     'students' => 'الطلاب',
+    'Add_student' => 'اضافة طالب جديد',
+    'Student_list' => 'قائمة الطلاب',
     'Teachers' => 'المعلمين',
     'List_Teachers' => 'قائمة المعلمين',
     'Parents' => 'اولياء الامور',
@@ -27,6 +29,7 @@ return [
     'Users' => 'المستخدمين',
     'Copyright' => 'جميع الحقوق محفوظة ',
     'Name_Programer' => 'محمود وائل الصيرافي',
+    'Processing'=>'العمليات',
 
     'Components' => 'المكونات ',
     'Elements' => ' العناصر ',
@@ -120,4 +123,4 @@ return [
     'PotenzaUser' => 'PotenzaUser',
     'Helen keller a teller seller' => 'هيلين كيلر بائعة صراف',
     'We also know those epic stories,those modern.' => 'ونحن نعرف أيضًا تلك القصص الملحمية، تلك القصص الحديثة.'
-];  
+];

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\Section\Sectioncoltroller;
+use App\Http\Controllers\Students\studentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\ClassRooms\ClassRoomsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -53,6 +54,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
         Route::resource('Teachers',TeacherController::class);
 
+
+    // ===============================Students===========================
+
+        Route::resource('Students',studentController::class);
+        Route::get('/Get_classrooms/{id}',[studentController::class,'Get_classrooms']);
+        Route::get('/Get_Sections/{id}',[studentController::class,'Get_Sections']);
 
     require __DIR__ . '/auth.php';
 });
