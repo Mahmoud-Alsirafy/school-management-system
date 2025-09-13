@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Image;
 use Livewire\Component;
 use App\Models\Religion;
 use App\Models\My_Parent;
@@ -9,6 +10,7 @@ use App\Models\Type_Blood;
 use App\Models\Nationality;
 use Livewire\WithFileUploads;
 use App\Models\ParentAttachment;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -110,6 +112,7 @@ class AddParent extends Component
 
     public function submitForm()
     {
+        DB::beginTransaction();
         try {
             $My_Parent = new My_Parent();
             // Mother Inputs
@@ -140,20 +143,22 @@ class AddParent extends Component
             // done to save
             if (!empty($this->photos)) {
                 foreach ($this->photos as $photo) {
-                    $photo->storeAs($this->National_ID_Father, $photo->getClientOriginalName(), $disk = 'parent_attachments');
-                    ParentAttachment::create([
-                        'file_name' => $photo->getClientOriginalName(),
-                        // get the id of the father and added to ParentAttachment DB in the same time
-                        'parent_id' => My_Parent::latest()->first()->id,
-                    ]);
+                    $name = $photo->getClientOriginalName();
+                    $photo->storeAs("attachments/parent/".$this->Name_Father, $photo->getClientOriginalName(),'upload_attachments');
+                   $images = new Image();
+                   $images->filename=$name;
+                   $images->imageable_id=$My_Parent->id;
+                   $images->imageable_type = 'App\Models\My_Parent';
+                    $images->save();
                 }
             }
-
+               DB::commit();
             $this->successMessage = trans('message.success');
             $this->clearForm();
             $this->currentStep = 1;
         } catch (\Throwable $e) {
-            $this->catchError = $e->getMessage();
+           DB::rollback();
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
 

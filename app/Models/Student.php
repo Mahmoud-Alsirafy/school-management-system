@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use App\Models\Image;
 
 class Student extends Model
 {
@@ -38,5 +39,9 @@ class Student extends Model
     public function myparent()
     {
         return $this->belongsTo('App\Models\My_Parent', 'parent_id');
+    }
+
+    public function images (){
+        return $this->morphMany(Image::class,'imageable');
     }
 }

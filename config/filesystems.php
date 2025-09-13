@@ -30,17 +30,17 @@ return [
 
     'disks' => [
 
-        // 'local' => [
-        //     'driver' => 'local',
-        //     'root' => storage_path('app/private'),
-        //     'serve' => true,
-        //     'throw' => false,
-        //     'report' => false,
-        // ],
-        'parent_attachments' => [
+        'local' => [
             'driver' => 'local',
-            'root' => storage_path('app/parent_attachments'),
-           'serve' => true,
+            'root' => storage_path('app/private'),
+            'serve' => true,
+            'throw' => false,
+            'report' => false,
+        ],
+        'upload_attachments' => [
+            'driver' => 'local',
+            'root' => public_path('/'),
+            'serve' => true,
             'throw' => false,
             'report' => false,
         ],

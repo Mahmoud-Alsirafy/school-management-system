@@ -4,12 +4,14 @@ namespace App\Repository;
 
 use App\Models\Room;
 use App\Models\Grade;
+use App\Models\Image;
 use App\Models\Gender;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\My_Parent;
 use App\Models\Type_Blood;
 use App\Models\Nationality;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class StudentRepository implements StudentRepositoryInterface
@@ -31,6 +33,8 @@ class StudentRepository implements StudentRepositoryInterface
 
     // Store Studens In DB
     public function Store_Students($request){
+
+        DB::beginTransaction();
         try {
             $Student = new Student();
             $Student->name = ["en" => $request->name_en , "ar" => $request->name_ar];
@@ -46,9 +50,24 @@ class StudentRepository implements StudentRepositoryInterface
             $Student->parent_id = $request->parent_id;
             $Student->academic_year = $request->academic_year;
             $Student -> save();
+            if($request->hasfile("photos")){
+                foreach($request->file('photos') as $file)
+                {
+                    $name =$file-> getClientOriginalName();
+                    $file->storeAs('attachments/students/'.$Student->name,$file->getClientOriginalName(),'upload_attachments');
+
+                    $images = new Image();
+                    $images->filename = $name;
+                    $images->imageable_id=$Student->id;
+                    $images->imageable_type='App\Models\Student';
+                    $images->save();
+                }
+            }
+               DB::commit();
             toastr()->success(trans('message.success'));
             return redirect()->route('Students.create');
         } catch (\Throwable $e) {
+             DB::rollback();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
