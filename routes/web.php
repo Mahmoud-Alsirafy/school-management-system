@@ -60,7 +60,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::resource('Students',studentController::class);
         Route::get('/Get_classrooms/{id}',[studentController::class,'Get_classrooms']);
         Route::get('/Get_Sections/{id}',[studentController::class,'Get_Sections']);
-
+        Route::post('Upload_attachment',[studentController::class,'Upload_attachment'])->name('Upload_attachment');
+        Route::get('Download_attachment/{studentsname}/{filename}', [studentController::class,'Download_attachment'])->name('Download_attachment');
+        Route::post('Delete_attachment',[studentController::class,'Delete_attachment'])->name("Delete_attachment");
     require __DIR__ . '/auth.php';
 });
 

@@ -77,7 +77,7 @@
                                      aria-labelledby="profile-02-tab">
                                     <div class="card card-statistics">
                                         <div class="card-body">
-                                            {{-- <form method="post" action="{{route('Upload_attachment')}}" enctype="multipart/form-data">
+                                            <form method="post" action="{{route('Upload_attachment')}}" enctype="multipart/form-data">
                                                 {{ csrf_field() }}
                                                 <div class="col-md-3">
                                                     <div class="form-group">
@@ -93,7 +93,7 @@
                                                 <button type="submit" class="button button-border x-small">
                                                        {{trans('Students_trans.submit')}}
                                                 </button>
-                                            </form> --}}
+                                            </form>
                                         </div>
                                         <br>
                                         <table class="table center-aligned-table mb-0 table table-hover"
@@ -107,7 +107,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {{-- @foreach($Student->images as $attachment)
+                                            @foreach($Student->images as $attachment)
                                                 <tr style='text-align:center;vertical-align:middle'>
                                                     <td>{{$loop->iteration}}</td>
                                                     <td>{{$attachment->filename}}</td>
@@ -126,7 +126,7 @@
                                                     </td>
                                                 </tr>
                                                 @include('pages.Students.Delete_img')
-                                            @endforeach --}}
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
