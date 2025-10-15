@@ -9,17 +9,24 @@ class Teacher extends Model
 {
     use HasTranslations;
     public $translatable = ['Name'];
-    protected $guarded=[];
+    protected $guarded = [];
+    protected $casts = [
+        'Name' => 'array',
+    ];
 
-    public function Specializations (){
-        return $this->belongsTo('App\Models\Specialization','Specialization_id');
+
+    public function Specializations()
+    {
+        return $this->belongsTo('App\Models\Specialization', 'Specialization_id');
     }
 
-    public function Genders (){
-        return $this->belongsTo('App\Models\Gender','Gender_id');
+    public function Genders()
+    {
+        return $this->belongsTo('App\Models\Gender', 'Gender_id');
     }
 
-    public function section (){
-        return $this->belongsToMany('App\Models\Section','teacher_section');
+    public function section()
+    {
+        return $this->belongsToMany('App\Models\Section', 'teacher_section');
     }
 }

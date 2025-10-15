@@ -11,6 +11,9 @@ class Student extends Model
     use HasTranslations;
 
     public $translatable = ["name"];
+     protected $casts = [
+        'name' => 'array',
+    ];
     protected $guarded=[];
 
     public function gender(){

@@ -16,12 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
         $this->call(BloodTable::class);
         $this->call(NationalityTable::class);
@@ -29,6 +24,13 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTable::class);
         $this->call(SpecializationsTable::class);
         $this->call(GenderTable::class);
+        $this->call(GradeTable::class);
+        $this->call(ClassesTable::class);
+        $this->call(TeacherTable::class);
+        $this->call(SectionsTable::class);
+        $this->call(MyparentTable::class);
+        $this->call(StudentsTable::class);
+
 
     }
 }
