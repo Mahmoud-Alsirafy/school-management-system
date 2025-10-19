@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\Student;
 
 use App\Models\Room;
 use App\Models\Grade;

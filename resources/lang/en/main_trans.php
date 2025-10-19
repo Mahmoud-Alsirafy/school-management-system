@@ -15,6 +15,15 @@ return [
     'students' => 'Students ',
     'Processing'=>'Processing',
     'Student_list' => 'Students List',
+    'Student_information' => 'Student Information',
+    "add_Graduate"=>"Add Graduate",
+    "list_Graduate"=>"List Graduate",
+    "error_promotions"=>'No Date In Student DB',
+    "Managment_Promotions"=>"Managment Promotions",
+    'Promotion' =>'Student Promotion',
+    'Students_Promotions'=>'Students Promotions',
+    'Old_promotions'=>'Old promotions',
+    'New_promotions'=>'New promotions',
     'Add_student' => 'Add Student',
     'information_student' => 'Information Students',
     'Students_upgrade' => 'Students Upgrade',
@@ -76,7 +85,8 @@ return [
     'Multi level Menu' => 'Multi level Menu',
     'Authentication' => 'Authentication',
     'Custom pages' => 'Custom pages',
-
+    // QR
+    "QR"=>"RQ Code",
     //Notifications
     'New registered user' => 'New registered user',
     'New invoice received' => 'New invoice received',

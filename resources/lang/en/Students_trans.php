@@ -34,5 +34,12 @@ return [
     'Edit'=>'Edit Student Info',
     'Show'=>'Show Student Info',
     'Delete'=>'Delete Student Info',
-
+    'previous_grade_level' => 'Previous Grade Level',
+    'academic_year' => 'Academic Year',
+    'previous_classroom' => 'Previous Classroom',
+    'previous_section' => 'Previous Section',
+    'current_grade_level' => 'Current Grade Level',
+    'current_academic_year' => 'Current Academic Year',
+    'current_classroom' => 'Current Classroom',
+    'current_section' => 'Current Section',
 ];

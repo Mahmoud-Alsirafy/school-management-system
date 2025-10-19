@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Students;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreStudentsRequest;
-use App\Repository\StudentRepositoryInterface;
+use App\Repository\Student\StudentRepositoryInterface;
 
 class studentController extends Controller
 {

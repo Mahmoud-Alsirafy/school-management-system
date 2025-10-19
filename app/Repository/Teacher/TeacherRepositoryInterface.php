@@ -1,5 +1,5 @@
 <?php
-namespace App\Repository;
+namespace App\Repository\Teacher;
 
 interface TeacherRepositoryInterface{
 // Get All Teacher From DB

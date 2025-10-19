@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Grade\GradeController;
+use App\Http\Controllers\QR_CODE\Qr_codeController;
 use App\Http\Controllers\Section\Sectioncoltroller;
 use App\Http\Controllers\Students\studentController;
 use App\Http\Controllers\Teachers\TeacherController;
-use App\Http\Controllers\QR_CODE\Qr_codeController;
+use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\ClassRooms\ClassRoomsController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -64,6 +65,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::post('Upload_attachment',[studentController::class,'Upload_attachment'])->name('Upload_attachment');
         Route::get('Download_attachment/{studentsname}/{filename}', [studentController::class,'Download_attachment'])->name('Download_attachment');
         Route::post('Delete_attachment',[studentController::class,'Delete_attachment'])->name("Delete_attachment");
+
+    // ===============================Promotion===========================
+
+    
+    Route::resource('Promotion',PromotionController::class);
 
 
     // ===============================QR===========================

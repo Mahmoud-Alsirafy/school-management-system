@@ -34,6 +34,14 @@ return [
     'Edit'=>'تعديل بيانات الطالب',
     'Show'=>'عرض بيانات الطالب',
     'Delete'=>'حذف بيانات الطالب',
+    "previous_grade_level"=>"المرحلة الدراسية السابقة",
+    "academic_year"=>"السنة الدراسية",
+    "previous_classroom"=>"الصف الدراسي السابق",
+    "previous_section"=>"القسم الدراسي السابق",
+    "current_grade_level"=>"المرحلة الدراسية الحالي",
+    "current_academic_year"=>"السنة الدراسية الحالية",
+    "current_classroom"=>"الصف الدراسي الحالي",
+    "current_section"=>"القسم الدراسي الحالي",
 
 
 

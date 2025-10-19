@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Teachers;
 
-use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeacherRequest;
-use App\Repository\TeacherRepositoryInterface;
+use App\Repository\Teacher\TeacherRepositoryInterface;
 
-use function PHPUnit\Framework\returnSelf;
+
 
 class TeacherController extends Controller
 {

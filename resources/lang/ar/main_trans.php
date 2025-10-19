@@ -14,7 +14,16 @@ return [
     'List_sections' => 'قائمة الاقسام الدراسية',
     'students' => 'الطلاب',
     'Add_student' => 'اضافة طالب جديد',
+    'Student_information' => 'معلومات الطالب',
+    "add_Graduate"=>"اضافة متخرج",
+    "list_Graduate"=>"قائمة المتخرجين",
     'Student_list' => 'قائمة الطلاب',
+    'Promotion' => 'ترقية الطلاب',
+    'Students_Promotions'=>'ترقية الطلاب',
+    'Managment_Promotions'=>'ادارة ترقية الطلاب' ,
+    "error_promotions"=>'لاتوجد بيانات في جدول الطلاب',
+    'Old_promotions'=>"المرحلة الدراسية القديمة",
+    'New_promotions'=>"المرحلة الدراسية الجديدة",
     'Teachers' => 'المعلمين',
     'List_Teachers' => 'قائمة المعلمين',
     'Parents' => 'اولياء الامور',
@@ -74,6 +83,8 @@ return [
     'Authentication' => 'المصادقة',
     'Custom pages' => 'صفحات مخصصة',
 
+    // QR
+    'QR'=>"رمز استجابة",
     //Notifications
     'New registered user' => 'المستخدم الجديد',
     'New invoice received' => 'تم استلام فاتورة جديدة',
