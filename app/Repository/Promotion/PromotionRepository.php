@@ -64,7 +64,7 @@ class PromotionRepository implements PromotionRepositoryInterface
                 ]);
             }
             DB::commit();
-            toastr()->success(trans('messages.success'));
+            toastr()->success(trans('message.success'));
             return redirect()->back();
         } catch (\Exception $e) {
             DB::rollback();
@@ -93,12 +93,12 @@ class PromotionRepository implements PromotionRepositoryInterface
 
                 Promotion::destroy($request->id);
                 DB::commit();
-                toastr()->error(trans('messages.delete'));
+                toastr()->error(trans('message.delete'));
                 return redirect()->back();
             } else {
                 $Promotions = Promotion::all();
                 foreach ($Promotions as $Promotion){
-   
+
                     //التحديث في جدول الطلاب
                     $ids = explode(',',$Promotion->student_id);
                     student::whereIn('id', $ids)
@@ -108,15 +108,15 @@ class PromotionRepository implements PromotionRepositoryInterface
                     'section_id'=> $Promotion->from_section,
                     'academic_year'=>$Promotion->academic_year,
                   ]);
-   
+
                     //حذف جدول الترقيات  (truncate) هيحزف الجدول كامل
                     Promotion::truncate();
-   
+
                 }
                    DB::commit();
-                   toastr()->error(trans('messages.delete'));
+                   toastr()->error(trans('message.delete'));
                    return redirect()->back();
-   
+
             }
         } catch (\Throwable $e) {
             DB::rollback();

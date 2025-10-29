@@ -103,7 +103,7 @@ class Sectioncoltroller extends Controller
 
 
         $Sections->save();
-        toastr()->success(trans('messages.Update'));
+        toastr()->success(trans('message.Update'));
 
         return redirect()->route('Sections.index');
     }

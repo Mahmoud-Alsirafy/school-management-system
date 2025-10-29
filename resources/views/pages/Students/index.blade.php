@@ -57,6 +57,8 @@
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                             <a class="dropdown-item" href="{{route('Students.show',$student->id)}}"><i style="color: #ffc107" class="far fa-eye "></i>&nbsp;  {{ trans('students_trans.Show') }}</a>
                                                             <a class="dropdown-item" href="{{route('Students.edit',$student->id)}}"><i style="color:green" class="fa fa-edit"></i>&nbsp;  {{ trans('students_trans.Edit') }}</a>
+                                                            <a class="dropdown-item" href="{{route('Graduated.create')}}"><i style="color:#ccc" class="fa-solid fa-graduation-cap"></i>&nbsp;  {{ trans('main_trans.Graduate_students') }}</a>
+                                                            <a class="dropdown-item" href="{{route('Promotion.create')}}"><i style="color:#aaa" class="fa-solid fa-circle-up"></i>&nbsp;  {{ trans('main_trans.Students_Promotions') }}</a>
                                                             {{-- <a class="dropdown-item" href="{{route('Fees_Invoices.show',$student->id)}}"><i style="color: #0000cc" class="fa fa-edit"></i>&nbsp;اضافة فاتورة رسوم&nbsp;</a> --}}
                                                             {{-- <a class="dropdown-item" href="{{route('receipt_students.show',$student->id)}}"><i style="color: #9dc8e2" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;سند قبض</a> --}}
                                                             {{-- <a class="dropdown-item" href="{{route('ProcessingFee.show',$student->id)}}"><i style="color: #9dc8e2" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp; استبعاد رسوم</a> --}}

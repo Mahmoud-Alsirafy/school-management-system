@@ -17,6 +17,7 @@ return [
     'Student_information' => 'معلومات الطالب',
     "add_Graduate"=>"اضافة متخرج",
     "list_Graduate"=>"قائمة المتخرجين",
+    "Graduate_students" => 'الطلاب المتخرجين',
     'Student_list' => 'قائمة الطلاب',
     'Promotion' => 'ترقية الطلاب',
     'Students_Promotions'=>'ترقية الطلاب',
