@@ -26,7 +26,9 @@ class Qr_codeController extends Controller
     {
 
         // المستخدم
-         $user = Auth::user()->name; 
+         $user = Auth::user();
+         $name = $user->name;
+         $email = $user->email;
 
         $national_id = $request->nationality_id;
         $link = "http://127.0.0.1:8000/show/$national_id";
@@ -48,8 +50,8 @@ class Qr_codeController extends Controller
         file_put_contents($filePath, $qrImage);
 
         // إرسال الإيميل مع المرفق
-        Mail::to("zeyadwael066@gmail.com")->send(new \App\Mail\SendQrMail(
-            'QR/Clint/' . $national_id . '/' . $fileName,$national_id,$user
+        Mail::to($email)->send(new \App\Mail\SendQrMail(
+            'QR/Clint/' . $national_id . '/' . $fileName,$national_id,$name
         ));
     }
 
