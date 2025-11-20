@@ -7,15 +7,15 @@
 </head>
 <body>
 
+    <h1 style="color:#ccc; text-align:center;">Hello {{ $user }} </h1>
+    <br><br>
+    <h1 style="color:#ccc; text-align:center;">ThIs Is Your QR Code For Your Medical Information <span style="color:red">Keep It Safe </span></h1>
 
 
 
 
-        <input type="text" id="nid" name="nationality_id" value="{{ $nationality_id }}" readonly>
 
-        <br><br>
 
-        <input type="text" id="name"value="{{ $user }}" name="name" readonly>
 
 
 </body>

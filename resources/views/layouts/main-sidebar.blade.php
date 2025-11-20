@@ -139,7 +139,7 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="{{ route('Fees.index') }}">Events Calendar </a> </li>
+                            <li> <a href="{{ route('Fees.index') }}">{{ trans('Fees.add_Fees') }}</a> </li>
                             <li> <a href="calendar-list.html">List Calendar</a> </li>
                         </ul>
                     </li>
