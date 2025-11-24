@@ -17,5 +17,7 @@ return [
     "add_Fees"=>"New Fees",
     "Fees_name"=>"Fees Name",
     "prosising"=>"Prosising",
+    'invoice_date'=>'Invoice Date',
+    'invoice'=>'Inavoice',
 
 ];

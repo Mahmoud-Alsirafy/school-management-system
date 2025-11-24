@@ -69,7 +69,7 @@ class FeesRepository implements FeesRepositoryInterface
             $Fees->year = $request->year;
             $Fees->save();
             DB::commit();
-            toastr()->success(trans('message.Update'));
+            toastr()->success(trans('message.update'));
             return redirect()->route('Fees.index');
         } catch (\Throwable $e) {
             DB::rollback();

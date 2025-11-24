@@ -17,4 +17,6 @@ return [
     "add_Fees"=>"اضافة رسوم",
     "Fees_name"=>"اسم الرسوم",
     "prosising" => "المراجعة",
+    'invoice_date' => 'تاريخ الفاتورة',
+    'invoice'=>"الفواتير",
 ];

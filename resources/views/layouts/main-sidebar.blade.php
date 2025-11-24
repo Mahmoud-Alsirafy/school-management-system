@@ -140,7 +140,7 @@
                         </a>
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{ route('Fees.index') }}">{{ trans('Fees.add_Fees') }}</a> </li>
-                            <li> <a href="calendar-list.html">List Calendar</a> </li>
+                            <li> <a href="{{ route('Fees_Invoices.index') }}">{{ trans('Fees.invoice') }}</a> </li>
                         </ul>
                     </li>
 
