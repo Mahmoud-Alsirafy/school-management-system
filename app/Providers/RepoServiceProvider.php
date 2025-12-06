@@ -19,7 +19,7 @@ class RepoServiceProvider extends ServiceProvider
             'App\Repository\Student\StudentRepositoryInterface',
             'App\Repository\Student\StudentRepository'
         );
-         $this->app->bind(
+        $this->app->bind(
             'App\Repository\Promotion\PromotionRepositoryInterface',
             'App\Repository\Promotion\PromotionRepository'
         );
@@ -35,9 +35,13 @@ class RepoServiceProvider extends ServiceProvider
             'App\Repository\Fees_invoices\Fees_invoicesRepositoryInterface',
             'App\Repository\Fees_invoices\Fees_invoicesRepository'
         );
-         $this->app->bind(
+        $this->app->bind(
             'App\Repository\StudentAccount\StudentAccountRepositoryInterface',
             'App\Repository\StudentAccount\StudentAccountRepository'
+        );
+        $this->app->bind(
+            'App\Repository\ReceiptStudent\ReceiptStudentRepositoryInterface',
+            'App\Repository\ReceiptStudent\ReceiptStudentRepository'
         );
     }
 

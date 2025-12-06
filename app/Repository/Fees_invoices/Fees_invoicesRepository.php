@@ -51,7 +51,7 @@ class Fees_invoicesRepository implements Fees_invoicesRepositoryInterface
 
                 // Student_account
                 $Student_account = new StudentAccount();
-                $Student_account->invoice_date = date('Y-m-d');
+                $Student_account->date = date('Y-m-d');
                 $Student_account->type = 'invoices';
                 $Student_account->student_id = $List_Fee['student_id'];
                 $Student_account->fee_invoice_id = $Fees->id;
@@ -99,16 +99,14 @@ class Fees_invoicesRepository implements Fees_invoicesRepositoryInterface
         }
     }
 
-     public function delete($request){
+    public function delete($request)
+    {
         try {
             Feesinvoice::destroy($request->id);
             toastr()->error(trans('message.delete'));
             return redirect()->back();
-        }
-
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
 }
