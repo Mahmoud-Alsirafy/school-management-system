@@ -2,13 +2,13 @@
 @section('css')
     @toastr_css
 @section('title')
-    سندات القبض
+   {{ trans('Fees.Receipt') }}
 @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
 @section('PageTitle')
-   سندات القبض
+  {{ trans('Fees.Receipt') }}
 @stop
 <!-- breadcrumb -->
 @endsection
@@ -28,10 +28,10 @@
                                         <thead>
                                         <tr class="alert-success">
                                             <th>#</th>
-                                            <th>الاسم</th>
-                                            <th>المبلغ</th>
-                                            <th>البيان</th>
-                                            <th>العمليات</th>
+                                            <th>{{ trans('Fees.name') }}</th>
+                                            <th>{{ trans('Fees.amount') }}</th>
+                                            <th>{{ trans('Fees.description') }}</th>
+                                            <th>{{ trans('Fees.actions') }}</th>
                                         </tr>
                                         </thead>
                                         <tbody>

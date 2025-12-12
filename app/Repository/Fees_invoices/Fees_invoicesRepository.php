@@ -56,7 +56,7 @@ class Fees_invoicesRepository implements Fees_invoicesRepositoryInterface
                 $Student_account->student_id = $List_Fee['student_id'];
                 $Student_account->fee_invoice_id = $Fees->id;
                 $Student_account->Debit = $List_Fee['amount'];
-                $Student_account->Cridit = 0.00;
+                $Student_account->Credit = 0.00;
                 $Student_account->Description = $List_Fee['description'];
                 $Student_account->save();
             }

@@ -141,6 +141,8 @@
                         <ul id="Accounts-menu" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{ route('Fees.index') }}">{{ trans('Fees.add_Fees') }}</a> </li>
                             <li> <a href="{{ route('Fees_Invoices.index') }}">{{ trans('Fees.invoice') }}</a> </li>
+                            <li> <a href="{{ route('Receipt.index') }}">{{ trans('Fees.Receipt') }}</a> </li>
+                            <li> <a href="{{ route('Processing.index') }}">{{ trans('Fees.Processing') }}</a> </li>
                         </ul>
                     </li>
 

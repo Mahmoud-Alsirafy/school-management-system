@@ -59,7 +59,7 @@ class ReceiptStudentRepository implements ReceiptStudentRepositoryInterface
             $student->student_id = $request->student_id;
             $student->receipt_id = $receipt_students->id;
             $student->Debit = 0.00;
-            $student->Cridit = $request->Debit;
+            $student->Credit = $request->Debit;
             $student->Description = $request->description;
             $student->save();
             DB::commit();
@@ -132,12 +132,14 @@ class ReceiptStudentRepository implements ReceiptStudentRepositoryInterface
         $request->validate([
             'id' => 'required|integer|exists:receipt_students,id',
         ]);
-
+        DB::beginTransaction();
         try {
             ReceiptStudent::destroy($request->id);
+            DB::commit();
             toastr()->error(trans('message.delete'));
             return redirect()->back();
         } catch (\Exception $e) {
+            DB::rollBack();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }

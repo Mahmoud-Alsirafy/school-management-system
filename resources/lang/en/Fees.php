@@ -19,5 +19,14 @@ return [
     "prosising"=>"Prosising",
     'invoice_date'=>'Invoice Date',
     'invoice'=>'Inavoice',
+    "Receipt"=>"Receipt",
+    'Processing'=>'Exclude Fees',
+    'name' => 'Name',
+    'description' => 'Description',
+    'actions' => 'Actions',
 
+    // Processing Receipts
+    'receipts_title' => 'Receipts',
+    'edit_receipt' => 'Edit Receipt',
+    'delete_confirm' => 'Are you sure you want to delete?',
 ];

@@ -14,6 +14,7 @@ use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\ClassRooms\ClassRoomsController;
 use App\Http\Controllers\fundAccount\FundAccountController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\ProcessingFees\ProcessingFeesController;
 use App\Http\Controllers\ReceiptStudent\ReceiptStudentController;
 use App\Http\Controllers\StudentAccount\StudentAccountController;
 
@@ -78,7 +79,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         // ===============================Receipt===========================
         Route::resource('Receipt', ReceiptStudentController::class);
         // ===============================fund===========================
-        Route::resource('fund', FundAccountController::class);
+        Route::resource('Processing', ProcessingFeesController::class);
     });
 
 
