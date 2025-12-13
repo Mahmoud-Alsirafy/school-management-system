@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Fees\FeesController;
 use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\FeesInvoices\FeesInvoices;
+use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\QR_CODE\Qr_codeController;
 use App\Http\Controllers\Section\Sectioncoltroller;
 use App\Http\Controllers\Students\studentController;
@@ -78,8 +79,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::resource('Fees', FeesController::class);
         // ===============================Receipt===========================
         Route::resource('Receipt', ReceiptStudentController::class);
-        // ===============================fund===========================
+        // ===============================Processing===========================
         Route::resource('Processing', ProcessingFeesController::class);
+        // ===============================Payment===========================
+        Route::resource('Payment', PaymentController::class);
     });
 
 

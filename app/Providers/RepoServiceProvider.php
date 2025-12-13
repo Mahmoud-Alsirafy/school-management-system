@@ -46,6 +46,9 @@ class RepoServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repository\ProcessingFees\ProcessingFeesRepositoryInterface',
             'App\Repository\ProcessingFees\ProcessingFeesRepository'
+        );$this->app->bind(
+            'App\Repository\Payment\PaymentRepositoryInterface',
+            'App\Repository\Payment\PaymentRepository'
         );
     }
 

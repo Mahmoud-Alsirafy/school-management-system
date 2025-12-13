@@ -143,6 +143,7 @@
                             <li> <a href="{{ route('Fees_Invoices.index') }}">{{ trans('Fees.invoice') }}</a> </li>
                             <li> <a href="{{ route('Receipt.index') }}">{{ trans('Fees.Receipt') }}</a> </li>
                             <li> <a href="{{ route('Processing.index') }}">{{ trans('Fees.Processing') }}</a> </li>
+                            <li> <a href="{{ route('Payment.index') }}">{{ trans('Fees.payment') }}</a> </li>
                         </ul>
                     </li>
 

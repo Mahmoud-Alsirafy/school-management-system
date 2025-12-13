@@ -29,4 +29,6 @@ return [
     'receipts_title' => 'Receipts',
     'edit_receipt' => 'Edit Receipt',
     'delete_confirm' => 'Are you sure you want to delete?',
+    'payment'=>'Payment',
+    'edit_payment'=>'Edit Payment',
 ];

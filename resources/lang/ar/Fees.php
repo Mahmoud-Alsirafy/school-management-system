@@ -27,4 +27,6 @@ return [
     'actions' => 'العمليات',
     'edit_receipt' => 'تعديل سند قبض',
     'delete_confirm' => 'هل أنت متأكد من عملية الحذف ؟',
+    'payment'=>' سند صرف ',
+    'edit_payment'=>'تعديل سند صرف ',
 ];
