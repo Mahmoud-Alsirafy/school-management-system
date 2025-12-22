@@ -13,17 +13,19 @@ class Student extends Model
     use HasTranslations;
 
     public $translatable = ["name"];
-     protected $casts = [
+    protected $casts = [
         'name' => 'array',
     ];
-    protected $guarded=[];
+    protected $guarded = [];
 
-    public function gender(){
-        return $this->belongsTo("App\Models\Gender","gender_id");
+    public function gender()
+    {
+        return $this->belongsTo("App\Models\Gender", "gender_id");
     }
 
-    public function grade(){
-        return $this->belongsTo("App\Models\Grade","Grade_id");
+    public function grade()
+    {
+        return $this->belongsTo("App\Models\Grade", "Grade_id");
     }
 
 
@@ -46,11 +48,16 @@ class Student extends Model
         return $this->belongsTo('App\Models\My_Parent', 'parent_id');
     }
 
-    public function images (){
-        return $this->morphMany(Image::class,'imageable');
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
-     public function student_account()
+    public function student_account()
     {
         return $this->hasMany('App\Models\StudentAccount', 'student_id');
+    }
+    public function attendance()
+    {
+        return $this->hasMany('App\Models\Attendance', 'student_id');
     }
 }

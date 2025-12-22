@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Fees\FeesController;
 use App\Http\Controllers\Grade\GradeController;
+use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\FeesInvoices\FeesInvoices;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\QR_CODE\Qr_codeController;
@@ -12,8 +13,8 @@ use App\Http\Controllers\Students\studentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\Students\GraduatedController;
 use App\Http\Controllers\Students\PromotionController;
+use App\Http\Controllers\Attendance\AttendanceController;
 use App\Http\Controllers\ClassRooms\ClassRoomsController;
-use App\Http\Controllers\fundAccount\FundAccountController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\ProcessingFees\ProcessingFeesController;
 use App\Http\Controllers\ReceiptStudent\ReceiptStudentController;
@@ -83,7 +84,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::resource('Processing', ProcessingFeesController::class);
         // ===============================Payment===========================
         Route::resource('Payment', PaymentController::class);
+        // ===============================Attendance===========================
+        Route::resource('Attendance', AttendanceController::class);
     });
+        // ===============================Subject===========================
+
+     Route::group(['prefix' => 'Subject'], function () {
+        Route::resource('subjects', SubjectController::class);
+     });
 
 
     // ===============================Promotion===========================
