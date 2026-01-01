@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Fees\FeesController;
 use App\Http\Controllers\Grade\GradeController;
-use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\FeesInvoices\FeesInvoices;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\QR_CODE\Qr_codeController;
+use App\Http\Controllers\Quizzes\QuizzesController;
 use App\Http\Controllers\Section\Sectioncoltroller;
+use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\Students\studentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\Students\GraduatedController;
@@ -92,6 +93,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
      Route::group(['prefix' => 'Subject'], function () {
         Route::resource('subjects', SubjectController::class);
      });
+
+
+    // =====================Quizzes==========================
+
+    Route::group(['prefix' => 'Quizzes'], function () {
+        Route::resource('Quizzes',QuizzesController::class);
+    });
 
 
     // ===============================Promotion===========================
