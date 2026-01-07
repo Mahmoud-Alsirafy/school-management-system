@@ -46,21 +46,26 @@ class RepoServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Repository\ProcessingFees\ProcessingFeesRepositoryInterface',
             'App\Repository\ProcessingFees\ProcessingFeesRepository'
-        );$this->app->bind(
+        );
+        $this->app->bind(
             'App\Repository\Payment\PaymentRepositoryInterface',
             'App\Repository\Payment\PaymentRepository'
-        );
-        ;$this->app->bind(
+        );;
+        $this->app->bind(
             'App\Repository\Attendance\AttendanceRepositoryInterface',
             'App\Repository\Attendance\AttendanceRepository'
-        );
-        ;$this->app->bind(
+        );;
+        $this->app->bind(
             'App\Repository\Subject\SubjectRepositoryInterface',
             'App\Repository\Subject\SubjectRepository'
-        );
-        ;$this->app->bind(
+        );;
+        $this->app->bind(
             'App\Repository\Quizzes\QuizzesRepositoryInterface',
             'App\Repository\Quizzes\QuizzesRepository'
+        );;
+        $this->app->bind(
+            'App\Repository\Question\QuestionRepositoryInterface',
+            'App\Repository\Question\QuestionRepository'
         );
     }
 

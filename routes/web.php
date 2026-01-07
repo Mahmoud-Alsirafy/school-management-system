@@ -12,6 +12,7 @@ use App\Http\Controllers\Section\Sectioncoltroller;
 use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\Students\studentController;
 use App\Http\Controllers\Teachers\TeacherController;
+use App\Http\Controllers\Question\QuestionController;
 use App\Http\Controllers\Students\GraduatedController;
 use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Attendance\AttendanceController;
@@ -88,17 +89,17 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         // ===============================Attendance===========================
         Route::resource('Attendance', AttendanceController::class);
     });
-        // ===============================Subject===========================
+    // ===============================Subject===========================
 
-     Route::group(['prefix' => 'Subject'], function () {
+    Route::group(['prefix' => 'Subject'], function () {
         Route::resource('subjects', SubjectController::class);
-     });
+    });
 
 
     // =====================Quizzes==========================
 
     Route::group(['prefix' => 'Quizzes'], function () {
-        Route::resource('Quizzes',QuizzesController::class);
+        Route::resource('Quizzes', QuizzesController::class);
     });
 
 
@@ -121,6 +122,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     // =============================StudentAccountController===========
 
     Route::resource('StudentAccount', StudentAccountController::class);
+
+
+    // =============================Question========================
+    Route::group(['prefix' => 'Question'], function () {
+        Route::resource('Question', QuestionController::class);
+    });
 
     require __DIR__ . '/auth.php';
 });
