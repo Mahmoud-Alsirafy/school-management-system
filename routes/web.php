@@ -13,6 +13,7 @@ use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\Students\studentController;
 use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\Question\QuestionController;
+use App\Http\Controllers\Online_classes\OnlineClasses;
 use App\Http\Controllers\Students\GraduatedController;
 use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Attendance\AttendanceController;
@@ -127,6 +128,13 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     // =============================Question========================
     Route::group(['prefix' => 'Question'], function () {
         Route::resource('Question', QuestionController::class);
+    });
+
+    // =============================Question========================
+    Route::group(['prefix' => 'Online'], function () {
+        Route::resource('Online', OnlineClasses::class);
+        Route::get('indirect_admin', [OnlineClasses::class, 'indirectCreate'])->name('indirect.create.admin');
+        Route::post('indirect_admin', [OnlineClasses::class, 'storeIndirect'])->name('indirect.store.admin');
     });
 
     require __DIR__ . '/auth.php';
