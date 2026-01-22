@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Fees\FeesController;
 use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\FeesInvoices\FeesInvoices;
+use App\Http\Controllers\library\libraryController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\QR_CODE\Qr_codeController;
 use App\Http\Controllers\Quizzes\QuizzesController;
@@ -135,6 +136,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
         Route::resource('Online', OnlineClasses::class);
         Route::get('indirect_admin', [OnlineClasses::class, 'indirectCreate'])->name('indirect.create.admin');
         Route::post('indirect_admin', [OnlineClasses::class, 'storeIndirect'])->name('indirect.store.admin');
+    });
+
+
+    // =============================Question========================
+    Route::group(['prefix' => 'library'], function () {
+        Route::resource('library', libraryController::class);
     });
 
     require __DIR__ . '/auth.php';
