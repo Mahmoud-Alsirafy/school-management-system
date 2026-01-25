@@ -62,4 +62,8 @@ class libraryController extends Controller
     {
         return $this->Library->DeleteBooks($request);
     }
+
+    public function downloadAttachment($id) {
+        return $this->Library->downloadAttach($id);
+    }
 }

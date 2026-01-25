@@ -79,7 +79,7 @@
                                 <div class="form-row">
                                     <div class="col">
 
-                                        <embed src="{{ URL::asset('attachments/library/'.$book->id.$book->file_name) }}" type="application/pdf"   height="150px" width="100px"><br><br>
+                                        <embed src="{{ URL::asset('attachments/library/'.$book->id."/".$image->filename) }}" type="application/pdf"   height="150px" width="100px"><br><br>
 
                                         <div class="form-group">
                                             <label for="academic_year">المرفقات : <span class="text-danger">*</span></label>

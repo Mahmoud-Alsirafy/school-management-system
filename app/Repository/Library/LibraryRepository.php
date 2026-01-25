@@ -39,9 +39,7 @@ class LibraryRepository implements LibraryRepositoryInterface
 
             if ($request->hasFile('file_name')) {
                 $this->uploadFile(
-                    $request->file('file_name'),
-                    $library,
-                    'library'
+                    $request->file('file_name'),$library,'library'
                 );
             }
 
@@ -60,7 +58,9 @@ class LibraryRepository implements LibraryRepositoryInterface
     {
         $grades = Grade::all();
         $book = Library::find($id);
-        return view('pages.library.edit', compact('book', 'grades'));
+        $image = Image::where("imageable_id",$id)->first();
+        // return $image;
+        return view('pages.library.edit', compact('book', 'grades',"image"));
     }
 
 
@@ -75,7 +75,7 @@ class LibraryRepository implements LibraryRepositoryInterface
             // تحديث الملف لو موجود
             if ($request->hasFile('file_name')) {
                 $this->deleteFile(
-                    $book,
+                    $request->id,
                     'library'
                 );
                 $this->uploadFile(
@@ -115,11 +115,7 @@ class LibraryRepository implements LibraryRepositoryInterface
         try {
             $book = Library::findOrFail($request->id);
             $book->delete();
-            $this->deleteFile
-            (
-                $book,
-                'library'
-            );
+            $this->deleteFile($request->id,'library');
             DB::commit();
             toastr()->success(trans('message.delete'));
             return redirect()->route('library.index');
@@ -127,5 +123,11 @@ class LibraryRepository implements LibraryRepositoryInterface
             DB::rollBack();
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+
+    public function downloadAttach($id) {
+        $fileName = Image::where("imageable_id",$id)->first();
+        $name = $fileName->filename;
+        return response()->download(public_path('attachments/library/'.$id."/".$name));
     }
 }
