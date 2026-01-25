@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\BloodTable;
 use Database\Seeders\ReligionTable;
 use Database\Seeders\NationalityTable;
+use Database\Seeders\Setting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SectionsTable::class);
         $this->call(MyparentTable::class);
         $this->call(StudentsTable::class);
+        $this->call(Setting::class);
 
 
     }

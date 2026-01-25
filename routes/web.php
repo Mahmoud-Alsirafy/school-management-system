@@ -10,6 +10,7 @@ use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Controllers\QR_CODE\Qr_codeController;
 use App\Http\Controllers\Quizzes\QuizzesController;
 use App\Http\Controllers\Section\Sectioncoltroller;
+use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\Subject\SubjectController;
 use App\Http\Controllers\Students\studentController;
 use App\Http\Controllers\Teachers\TeacherController;
@@ -142,6 +143,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     // =============================Question========================
     Route::group(['prefix' => 'library'], function () {
         Route::resource('library', libraryController::class);
+        Route::get('/downloadAttachment/{id}', [libraryController::class, 'downloadAttachment'])->name('downloadAttachment');
+
+    });
+
+
+    // ============================Settings======================
+    Route::group(['prefix'=>'Setting'], function () {
+        Route::resource('Setting',SettingController::class);
     });
 
     require __DIR__ . '/auth.php';
