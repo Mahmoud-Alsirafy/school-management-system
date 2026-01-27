@@ -71,7 +71,15 @@
                     </div>
                     <div class="col-lg-4 col-md-6 bg-white">
                         <div class="login-fancy pb-40 clearfix">
-                            <h3 class="mb-30">تسجيل الدخول</h3>
+                            @if($type == 'student')
+                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول طالب</h3>
+                        @elseif($type == 'parent')
+                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول ولي امر</h3>
+                        @elseif($type == 'teacher')
+                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول معلم</h3>
+                        @else
+                            <h3 style="font-family: 'Cairo', sans-serif" class="mb-30">تسجيل دخول ادمن</h3>
+                        @endif
 
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
@@ -88,6 +96,8 @@
                                     @enderror
 
                                 </div>
+
+                                <input type="hidden" value="{{ $type }}" name="type">
 
                                 <div class="section-field mb-20">
                                     <label class="mb-10" for="Password">كلمة المرور * </label>

@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Fees\FeesController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Grade\GradeController;
 use App\Http\Controllers\FeesInvoices\FeesInvoices;
 use App\Http\Controllers\library\libraryController;
@@ -25,15 +27,35 @@ use App\Http\Controllers\ProcessingFees\ProcessingFeesController;
 use App\Http\Controllers\ReceiptStudent\ReceiptStudentController;
 use App\Http\Controllers\StudentAccount\StudentAccountController;
 
-Route::group(['middleware' => ['guest']], function () {
+// Route::group(['middleware' => ['guest']], function () {
 
-    Route::get('/', function () {
-        return view('auth.login');
+//     Route::get('/', function () {
+//         return view('auth.login');
+//     });
+// });
+
+Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
+
+
+
+
+    Route::get('/', [HomeController::class, 'index'])->name('selection');
+
+    Route::group(['namespace' => 'Auth'], function () {
+        Route::get('/login/{type}', [LoginController::class, 'loginFom'])->middleware('guest')->name('login.show');
+        Route::post('/login', [LoginController::class, 'login'])->name('login');
+        Route::get('/login', function () {
+            return redirect()->route('selection');
+        })->name('login');
+        Route::post('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
     });
-});
+
+
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware('auth')->name('dashboard');
+
+
 
 //==============================Translate all pages============================
-Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
     //==============================middleware============================
     Route::middleware('auth')->group(function () {
@@ -44,9 +66,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     //==============================dashboard============================
 
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard');
+    // })->middleware(['auth', 'verified'])->name('dashboard');
 
     //==============================grade============================
 
@@ -144,17 +166,16 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::group(['prefix' => 'library'], function () {
         Route::resource('library', libraryController::class);
         Route::get('/downloadAttachment/{id}', [libraryController::class, 'downloadAttachment'])->name('downloadAttachment');
-
     });
 
 
     // ============================Settings======================
-    Route::group(['prefix'=>'Setting'], function () {
-        Route::resource('Setting',SettingController::class);
+    Route::group(['prefix' => 'Setting'], function () {
+        Route::resource('Setting', SettingController::class);
     });
 
-    require __DIR__ . '/auth.php';
+    // require __DIR__ . '/auth.php';
 });
 
 //==============================parents============================
-Route::view('add_parent', 'livewire.Show_Form');
+Route::view('add_parent', 'livewire.Show_Form')->name('add_parent');
