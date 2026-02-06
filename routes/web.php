@@ -34,12 +34,12 @@ use App\Http\Controllers\StudentAccount\StudentAccountController;
 //     });
 // });
 
+Route::get('/', [HomeController::class, 'index'])->name('selection');
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
 
 
 
-    Route::get('/', [HomeController::class, 'index'])->name('selection');
 
     Route::group(['namespace' => 'Auth'], function () {
         Route::get('/login/{type}', [LoginController::class, 'loginFom'])->middleware('guest')->name('login.show');

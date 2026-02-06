@@ -71,7 +71,7 @@
 
                     <div class="col">
                         <label for="title">{{trans('Parent_trans.Phone_Father')}}</label>
-                        <input type="text" wire:model="Phone_Father" class="form-control">
+                        <input type="number" wire:model="Phone_Father" class="form-control">
                         @error('Phone_Father')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

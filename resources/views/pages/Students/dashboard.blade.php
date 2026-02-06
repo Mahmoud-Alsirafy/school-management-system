@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
     @include('layouts.head')
+    @livewireStyles
 </head>
 
 <body style="font-family: 'Cairo', sans-serif">
@@ -22,9 +23,9 @@
         <!--=================================
  preloader -->
 
- <div id="pre-loader">
-     <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
- </div>
+        <div id="pre-loader">
+            <img src="{{ URL::asset('assets/images/pre-loader/loader-01.svg') }}" alt="">
+        </div>
 
         <!--=================================
  preloader -->
@@ -37,9 +38,9 @@
  Main content -->
         <!-- main-content -->
         <div class="content-wrapper">
-            <div class="page-title" >
+            <div class="page-title">
                 <div class="row">
-                    <div class="col-sm-6" >
+                    <div class="col-sm-6">
                         <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">لوحة تحكم الطالب</h4>
                     </div>
                     <div class="col-sm-6">
@@ -49,7 +50,7 @@
                 </div>
             </div>
             <!-- widgets -->
-            <div class="row" >
+            <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -264,7 +265,7 @@
                                         aria-labelledby="months-tab">
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="images/blog/05.jpg" alt="">
+                                                <img class="img-fluid" src="{{ asset('images/blog/05.jpg') }}" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">Supercharge your motivation</h6>
@@ -283,7 +284,7 @@
                                         </div>
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="images/blog/02.jpg" alt="">
+                                                <img class="img-fluid" src="{{ asset('images/blog/02.jpg') }}" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">Helen keller a teller seller</h6>
@@ -303,7 +304,7 @@
                                         </div>
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="images/blog/03.jpg" alt="">
+                                                <img class="img-fluid" src="{{ asset('images/blog/03.jpg') }}" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">The other virtues practice</h6>
@@ -323,7 +324,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="images/blog/04.jpg" alt="">
+                                                <img class="img-fluid" src="{{ asset('images/blog/04.jpg') }}" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">You will begin to realise</h6>
@@ -345,7 +346,7 @@
                                     <div class="tab-pane fade" id="year" role="tabpanel" aria-labelledby="year-tab">
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="images/blog/09.jpg" alt="">
+                                                <img class="img-fluid" src="{{ asset('images/blog/09.jpg') }}" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">Walk out 10 years into</h6>
@@ -365,7 +366,7 @@
                                         </div>
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="images/blog/06.jpg" alt="">
+                                                <img class="img-fluid" src="{{ asset('images/blog/06.jpg') }}" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">Step out on to the path</h6>
@@ -385,7 +386,7 @@
                                         </div>
                                         <div class="row mb-30">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="images/blog/07.jpg" alt="">
+                                                <img class="img-fluid" src="{{ asset('images/blog/07.jpg') }}" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">Briefly imagine that you</h6>
@@ -405,7 +406,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2 col-sm-6">
-                                                <img class="img-fluid" src="images/blog/08.jpg" alt="">
+                                                <img class="img-fluid" src="{{ asset('images/blog/08.jpg') }}" alt="">
                                             </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <h6 class="mb-0 sm-mt-5">You continue doing what</h6>
@@ -439,7 +440,8 @@
                                 <li class="mb-20">
                                     <div class="media">
                                         <div class="position-relative">
-                                            <img class="img-fluid mr-15 avatar-small" src="images/item/01.png" alt="">
+                                            <img class="img-fluid mr-15 avatar-small"
+                                                src="{{ asset('images/item/01.png') }}" alt="">
                                         </div>
                                         <div class="media-body">
                                             <h6 class="mt-0 mb-0">Car dealer <span class="float-right text-danger">
@@ -452,7 +454,8 @@
                                 <li class="mb-20">
                                     <div class="media">
                                         <div class="position-relative clearfix">
-                                            <img class="img-fluid mr-15 avatar-small" src="images/item/02.png" alt="">
+                                            <img class="img-fluid mr-15 avatar-small"
+                                                src="{{ asset('images/item/02.png') }}" alt="">
                                         </div>
                                         <div class="media-body">
                                             <h6 class="mt-0 mb-0">Webster <span class="float-right text-warning">
@@ -465,7 +468,8 @@
                                 <li class="mb-20">
                                     <div class="media">
                                         <div class="position-relative">
-                                            <img class="img-fluid mr-15 avatar-small" src="images/item/03.png" alt="">
+                                            <img class="img-fluid mr-15 avatar-small"
+                                                src="{{ asset('images/item/03.png') }}" alt="">
                                         </div>
                                         <div class="media-body">
                                             <h6 class="mt-0 mb-0">The corps <span class="float-right text-success">
@@ -478,7 +482,8 @@
                                 <li>
                                     <div class="media">
                                         <div class="position-relative clearfix">
-                                            <img class="img-fluid mr-15 avatar-small" src="images/item/04.png" alt="">
+                                            <img class="img-fluid mr-15 avatar-small"
+                                                src="{{ asset('images/item/04.png') }}" alt="">
                                         </div>
                                         <div class="media-body">
                                             <h6 class="mt-0 mb-0">Sam martin <span
@@ -520,7 +525,7 @@
                 </div>
                 <div class="col-xl-4 mb-30">
                     <div class="card card-statistics h-100">
-                        <div class="p-4 text-center bg" style="background: url(images/bg/01.jpg);">
+                        <div class="p-4 text-center bg" style="background: ({{ asset('images/bg/01.jpg') }});">
                             <h5 class="mb-70 text-white position-relative">Michael Bean </h5>
                             <div class="btn-group info-drop">
                                 <button type="button" class="dropdown-toggle-split text-white" data-toggle="dropdown"
@@ -539,7 +544,8 @@
                         </div>
                         <div class="card-body text-center position-relative">
                             <div class="avatar-top">
-                                <img class="img-fluid w-25 rounded-circle " src="images/team/13.jpg" alt="">
+                                <img class="img-fluid w-25 rounded-circle " src="{{ asset('images/team/13.jpg') }}"
+                                    alt="">
                             </div>
                             <div class="row">
                                 <div class="col-sm-4 mt-30">
@@ -683,8 +689,10 @@
     <!--=================================
  footer -->
 
+        @stack('scripts')
+        @livewireScripts
     @include('layouts.footer-scripts')
 
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </body>
-
 </html>
