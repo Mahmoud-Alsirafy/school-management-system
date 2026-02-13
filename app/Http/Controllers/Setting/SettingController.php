@@ -24,14 +24,17 @@ class SettingController extends Controller
         try {
             $info = $request->except("_token","_method");
             foreach ($info as $key=>$value){
-              $model = setting::where('Key',$key)->update(['Value'=>$value]);
+              setting::where('Key',$key)->update(['Value'=>$value]);
             }
 
-            if($request->hasFile('logo')) {
+            if ($request->hasFile('logo')) {
+                $logoSetting = setting::where('Key', 'logo')->first();
+                if ($logoSetting) {
+                    $this->deleteFile($logoSetting->id, 'logo');
+                }
+                $logoSetting = setting::firstOrCreate(['Key' => 'logo'], ['Value' => '']);
                 $file = $request->file('logo');
-                $this->uploadFile($file,$model,"logo");
-
-
+                $this->uploadFile($file, $logoSetting, 'logo');
             }
             DB::commit();
             toastr()->success(trans('message.success'));

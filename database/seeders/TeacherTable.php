@@ -23,10 +23,10 @@ class TeacherTable extends Seeder
 
         Teacher::create([
             'Name' =>["ar" => 'محمود', "en" => "mahmoud"],
-            'Email' => "Mahmoud@gmail.com",
-            'Password' => Hash::make('123456789mM$'),
+            'email' => "Mahmoud@gmail.com",
+            'password' => Hash::make('123456789mM$'),
             'Specialization_id' => Specialization::all()->unique()->random()->id,
-            'gender_id' => Gender::all()->unique()->random()->id,
+            'Gender_id' => Gender::all()->unique()->random()->id,
             'Address' => "Sharqia",
             'Joining_Date' => '1995-01-01',
         ]);

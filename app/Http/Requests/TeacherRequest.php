@@ -21,8 +21,9 @@ class TeacherRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('id') ?? $this->route('teacher');
         return [
-            'Email'=>'required|unique:teachers,Email,'.$this->id,
+            'Email'=>'required|unique:teachers,email,' . ($id ?: 'NULL'),
             'Password'=>'required|string|max:12',
             'Name_ar'=>'required|string',
             'Name_en'=>'required|string',

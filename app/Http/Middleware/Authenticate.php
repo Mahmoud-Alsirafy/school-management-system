@@ -2,31 +2,29 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
+use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Support\Facades\Request;
-use Symfony\Component\HttpFoundation\Response;
 
-class Authenticate
+class Authenticate extends Middleware
 {
-
-    protected function redirectTo($request)
+    protected function redirectTo($request): ?string
     {
         if (!$request->expectsJson()) {
             if (Request::is(app()->getLocale() . '/student/dashboard')) {
                 return route('selection');
             }
 
-            elseif (Request::is(app()->getLocale() . '/teacher/dashboard')) {
+            if (Request::is(app()->getLocale() . '/teacher/dashboard')) {
                 return route('selection');
             }
 
-            elseif (Request::is(app()->getLocale() . '/parent/dashboard')) {
+            if (Request::is(app()->getLocale() . '/parent/dashboard')) {
                 return route('selection');
             }
 
-            else {
-                return route('selection');
-            }
+            return route('selection');
         }
+
+        return null;
     }
 }

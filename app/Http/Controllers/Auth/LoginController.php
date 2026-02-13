@@ -23,8 +23,6 @@ class LoginController extends Controller
            return $this->redirect($request);
         }
 
-
-
         return back()->withErrors([
             'email' => 'بيانات الدخول غير صحيحة',
         ]);

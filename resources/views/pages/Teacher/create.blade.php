@@ -102,7 +102,7 @@
                                 <div class="col">
                                     <label for="title">{{trans('Teacher_trans.Joining_Date')}}</label>
                                     <div class='input-group date'>
-                                        <input class="form-control" type="text" id="datepicker-action" name="Joining_Date" data-date-format="yyyy-mm-dd" required>
+                                        <input class="form-control" type="date" id="datepicker-action" name="Joining_Date" data-date-format="yyyy-mm-dd" required>
                                     </div>
                                     @error('Joining_Date')
                                     <div class="alert alert-danger">{{ $message }}</div>

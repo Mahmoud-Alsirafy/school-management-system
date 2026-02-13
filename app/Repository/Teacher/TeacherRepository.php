@@ -11,39 +11,42 @@ class TeacherRepository implements TeacherRepositoryInterface
 {
     public function getAllTeacher()
     {
-       $Teachers = Teacher::all();
-        return view('pages.Teacher.Teachers',compact('Teachers'));
+        $Teachers = Teacher::all();
+        return view('pages.Teacher.Teachers', compact('Teachers'));
     }
 
-    public function GetSpecialization(){
+    public function GetSpecialization()
+    {
         return Specialization::all();
     }
-    public function GetGender(){
+    public function GetGender()
+    {
         return Gender::all();
     }
 
     public function StoreTeacher($request)
     {
+        // return $request;
         try {
-            $Teacher = new Teacher ();
-            $Teacher->Email = $request->Email;
-            $Teacher->Password = Hash::make($request->Password);
-            $Teacher->Name = ["en" => $request->Name_en , "ar" => $request->Name_ar];
+            $Teacher = new Teacher();
+            $Teacher->email = $request->Email;
+            $Teacher->password = Hash::make($request->Password);
+            $Teacher->Name = ["en" => $request->Name_en, "ar" => $request->Name_ar];
             $Teacher->Specialization_id = $request->Specialization_id;
             $Teacher->Gender_id = $request->Gender_id;
             $Teacher->Joining_Date = $request->Joining_Date;
             $Teacher->Address = $request->Address;
-            $Teacher -> save();
+            $Teacher->save();
             toastr()->success(trans('message.success'));
             return redirect()->route('Teachers.index');
-            } catch (\Throwable $e) {
-                return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
             }
     }
 
-    public function EditTeacher($id){
+    public function EditTeacher($id)
+    {
         return Teacher::findOrFail($id);
-
     }
 
 
@@ -51,27 +54,27 @@ class TeacherRepository implements TeacherRepositoryInterface
     {
         try {
             $Teacher = Teacher::findOrFail($request->id);
-            $Teacher->Email = $request->Email;
-            $Teacher->Password = Hash::make($request->Password);
-            $Teacher->Name = ["en" => $request->Name_en , "ar" => $request->Name_ar];
+            $Teacher->email = $request->Email;
+            $Teacher->password = Hash::make($request->Password);
+            $Teacher->Name = ["en" => $request->Name_en, "ar" => $request->Name_ar];
             $Teacher->Specialization_id = $request->Specialization_id;
             $Teacher->Gender_id = $request->Gender_id;
             $Teacher->Joining_Date = $request->Joining_Date;
             $Teacher->Address = $request->Address;
-            $Teacher -> save();
+            $Teacher->save();
             toastr()->success(trans('message.success'));
             return redirect()->route('Teachers.index');
-            } catch (\Throwable $e) {
-                return redirect()->back()->withErrors(['error' => $e->getMessage()]);
-            }
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
 
-    public function DeleteTeacher ($request)
+    public function DeleteTeacher($request)
     {
         try {
             $Teacher = Teacher::findOrFail($request->id)->delete();
-        toastr()->success(trans('message.delete'));
+            toastr()->success(trans('message.delete'));
             return redirect()->route('Teachers.index');
         } catch (\Throwable $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);

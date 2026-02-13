@@ -127,6 +127,7 @@
                             <h5 class="mt-0 mb-0">{{ Auth::user()->name }}</h5>
                             <span>{{ Auth::user()->email }}</span>
                         </div> --}}
+                        {{-- {{ auth()->user()->email }} --}}
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>

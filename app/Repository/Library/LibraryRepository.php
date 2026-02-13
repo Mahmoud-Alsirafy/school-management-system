@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Library;
 use App\Traits\AttachFiles;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class LibraryRepository implements LibraryRepositoryInterface
 {
@@ -126,8 +127,11 @@ class LibraryRepository implements LibraryRepositoryInterface
     }
 
     public function downloadAttach($id) {
-        $fileName = Image::where("imageable_id",$id)->first();
-        $name = $fileName->filename;
-        return response()->download(public_path('attachments/library/'.$id."/".$name));
+        $image = Image::where("imageable_id", $id)->firstOrFail();
+        $path = 'attachments/library/' . $id . '/' . $image->filename;
+        if (!Storage::disk('upload_attachments')->exists($path)) {
+            abort(404);
+        }
+        return response()->download(Storage::disk('upload_attachments')->path($path), $image->filename);
     }
 }
