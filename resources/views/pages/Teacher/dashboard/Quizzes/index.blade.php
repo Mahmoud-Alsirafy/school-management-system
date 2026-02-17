@@ -21,7 +21,7 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('quizzes.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('qui_tea.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">{{ __('Teacher_trans.add_new_quiz') }}</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -48,14 +48,14 @@
                                                 <td>{{$quizze->classroom->Name_Class}}</td>
                                                 <td>{{$quizze->section->Name_Section}}</td>
                                                 <td>
-                                                    <a href="{{route('quizzes.edit',$quizze->id)}}"
+                                                    <a href="{{route('qui_tea.edit',$quizze->id)}}"
                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#delete_exam{{ $quizze->id }}" title="{{ __('Teacher_trans.delete') }}"><i
                                                             class="fa fa-trash"></i></button>
-                                                    <a href="{{route('quizzes.show',$quizze->id)}}"
+                                                    <a href="{{route('qui_tea.show',$quizze->id)}}"
                                                        class="btn btn-warning btn-sm" title="{{ __('Teacher_trans.show_questions') }}" role="button" aria-pressed="true"><i
                                                             class="fa fa-binoculars"></i></a>
                                                 </td>
@@ -64,7 +64,7 @@
                                             <div class="modal fade" id="delete_exam{{$quizze->id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('quizzes.destroy',$quizze->id)}}" method="post">
+                                                    <form action="{{route('qui_tea.destroy',$quizze->id)}}" method="post">
                                                         {{method_field('delete')}}
                                                         {{csrf_field()}}
                                                         <div class="modal-content">

@@ -224,7 +224,7 @@
                 <div class="clearfix"></div>
             </a>
             <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
-                <li> <a href="{{ route('Online.index') }}">Online Classes</a> </li>
+                <li> <a href="{{ route('Online.index') }}">{{ trans('main_trans.Onlineclasses') }}</a> </li>
             </ul>
         </li>
 

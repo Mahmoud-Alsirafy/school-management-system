@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('quizzes.store')}}" method="post" autocomplete="off">
+                            <form action="{{route('qui_tea.store')}}" method="post" autocomplete="off">
                                 @csrf
 
                                 <div class="form-row">
@@ -54,7 +54,7 @@
                                             <select class="custom-select mr-sm-2" name="subject_id">
                                                 <option selected disabled>{{ __('Teacher_trans.select_subject') }}</option>
                                                 @foreach($subjects as $subject)
-                                                    <option  value="{{ $subject->id }}">{{ $subject->name }}</option>
+                                                    <option  value="{{ $subject->id }}">{{ $subject->Name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

@@ -188,7 +188,7 @@
                 var Grade_id = $(this).val();
                 if (Grade_id) {
                     $.ajax({
-                        url: "{{ URL::to(app()->getLocale() . '/Students/Get_classrooms') }}/" + Grade_id,
+                        url: "{{ url('/Get_classrooms') }}/" + Grade_id,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {
@@ -216,7 +216,7 @@
                 var Classroom_id = $(this).val();
                 if (Classroom_id) {
                     $.ajax({
-                        url: "{{ URL::to(app()->getLocale() . '/Students/Get_Sections') }}/" + Classroom_id,
+                        url: "{{ url('/Get_Sections') }}/" + Classroom_id,
                         type: "GET",
                         dataType: "json",
                         success: function (data) {

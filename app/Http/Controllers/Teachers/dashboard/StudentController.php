@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Teachers\dashboard;
 
+use App\Models\Room;
 use App\Models\Section;
 use App\Models\Student;
 use App\Models\Teacher;
@@ -101,4 +102,6 @@ class StudentController extends Controller
             return view('pages.Teacher.dashboard.students.attendance_report', compact('Students', 'students'));
         }
     }
+
+
 }

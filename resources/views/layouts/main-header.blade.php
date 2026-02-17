@@ -117,17 +117,25 @@
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header">
                     <div class="media">
-                        {{-- <div class="media-body">
-                            @php
-                            if (! Auth::check() || ! Auth::user()->name) {
-                            header('Location: ' . route('logout_get'));
-                            exit;
-                            }
-                            @endphp
-                            <h5 class="mt-0 mb-0">{{ Auth::user()->name }}</h5>
-                            <span>{{ Auth::user()->email }}</span>
-                        </div> --}}
-                        {{-- {{ auth()->user()->email }} --}}
+                        @php
+                        $user = null;
+                        $email = '';
+                        
+                        if (auth('student')->check()) {
+                            $user = auth('student')->user();
+                            $email = $user ? $user->email : '';
+                        } elseif (auth('teacher')->check()) {
+                            $user = auth('teacher')->user();
+                            $email = $user ? $user->email : '';
+                        } elseif (auth('parent')->check()) {
+                            $user = auth('parent')->user();
+                            $email = $user ? $user->Email : '';
+                        } elseif (Auth::check()) {
+                            $user = Auth::user();
+                            $email = $user ? $user->email : '';
+                        }
+                        @endphp
+                        {{ $email }}
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>

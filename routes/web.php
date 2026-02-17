@@ -35,20 +35,29 @@ use App\Http\Controllers\StudentAccount\StudentAccountController;
 // });
 
 Route::get('/', [HomeController::class, 'index'])->name('selection');
-Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
+
+
+Route::group(['namespace' => 'Auth'], function () {
+    Route::get('/login/{type}', [LoginController::class, 'loginFom'])->middleware('guest')->name('login.show');
+    Route::post('/login', [LoginController::class, 'login'])->name('login');
+    Route::get('/login', function () {
+        return redirect()->route('selection');
+    })->name('login');
+    Route::post('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
+});
+
+
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth']
+], function () {
 
 
 
 
 
-    Route::group(['namespace' => 'Auth'], function () {
-        Route::get('/login/{type}', [LoginController::class, 'loginFom'])->middleware('guest')->name('login.show');
-        Route::post('/login', [LoginController::class, 'login'])->name('login');
-        Route::get('/login', function () {
-            return redirect()->route('selection');
-        })->name('login');
-        Route::post('/logout/{type}', [LoginController::class, 'logout'])->name('logout');
-    });
+
+
 
 
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware('auth')->name('dashboard');
@@ -96,8 +105,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
     Route::group(['prefix' => 'Students'], function () {
         Route::resource('Students', studentController::class);
-        Route::get('/Get_classrooms/{id}', [studentController::class, 'Get_classrooms']);
-        Route::get('/Get_Sections/{id}', [studentController::class, 'Get_Sections']);
+
         Route::post('Upload_attachment', [studentController::class, 'Upload_attachment'])->name('Upload_attachment');
         Route::get('Download_attachment/{studentsname}/{filename}', [studentController::class, 'Download_attachment'])->name('Download_attachment');
         Route::post('Delete_attachment', [studentController::class, 'Delete_attachment'])->name("Delete_attachment");
@@ -179,3 +187,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
 
 //==============================parents============================
 Route::view('add_parent', 'livewire.Show_Form')->name('add_parent');
+
+Route::get('/Get_classrooms/{id}', [studentController::class, 'Get_classrooms']);
+Route::get('/Get_Sections/{id}', [studentController::class, 'Get_Sections']);
