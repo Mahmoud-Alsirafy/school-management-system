@@ -2,17 +2,22 @@
 
 namespace App\Http\Controllers\Teachers\dashboard;
 
-use App\Models\Question;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Question;
+use App\Models\Quizzes;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
 
     public function index()
     {
-        //
+        $teacherId = Auth::guard('teacher')->id();
+      $quizzes = Quizzes::where('teacher_id' , $teacherId)->get();
+        $questions = Question::where('teacher_id' , $teacherId)->get();
+        return view('pages.Teacher.dashboard.Questions.index',compact('questions'));
     }
 
 

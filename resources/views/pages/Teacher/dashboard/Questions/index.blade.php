@@ -58,7 +58,7 @@
                                                 </td>
                                             </tr>
 
-                                        @include('pages.Teachers.dashboard.Questions.destroy')
+                                        @include('pages.Teacher.dashboard.Questions.destroy')
                                         @endforeach
                                     </table>
                                 </div>
