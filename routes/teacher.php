@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Teachers\dashboard\OnlineZoomClassesController;
+use App\Http\Controllers\Teachers\dashboard\ProfileController;
 use App\Http\Controllers\Teachers\dashboard\QuestionController;
 use App\Http\Controllers\Teachers\dashboard\QuizzeController;
 use App\Http\Controllers\Teachers\dashboard\StudentController;
@@ -39,6 +40,8 @@ Route::group(
             Route::resource('online_zoom_classes', OnlineZoomClassesController::class);
             Route::get('/indirect', [OnlineZoomClassesController::class,'indirectCreate'])->name('indirect.teacher.create');
             Route::post('/indirect', [OnlineZoomClassesController::class,'storeIndirect'])->name('indirect.teacher.store');
+            Route::get('profile',[ProfileController::class,'index'])->name('profile.show');
+            Route::post('profile/{id}',[ProfileController::class,'update'])->name('profile.update');
         });
     }
 );

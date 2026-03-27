@@ -71,7 +71,7 @@
 
         <!-- الملف الشخصي-->
         <li>
-            <a href="#"><i class="fas fa-id-card-alt"></i><span
+            <a href="{{ route('profile.show') }}"><i class="fas fa-id-card-alt"></i><span
                     class="right-nav-text">الملف الشخصي</span></a>
         </li>
 
