@@ -57,7 +57,7 @@
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#Delete_receipt{{$online_classe->meeting_id}}" ><i class="fa fa-trash"></i></button>
                                                 </td>
                                             </tr>
-                                        @include('pages.Teachers.dashboard.online_classes.delete')
+                                        @include('pages.Teacher.dashboard.online_classes.delete')
                                         @endforeach
                                     </table>
                                 </div>

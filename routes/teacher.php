@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Teachers\dashboard\OnlineZoomClassesController;
 use App\Http\Controllers\Teachers\dashboard\QuestionController;
 use App\Http\Controllers\Teachers\dashboard\QuizzeController;
 use App\Http\Controllers\Teachers\dashboard\StudentController;
@@ -34,8 +35,10 @@ Route::group(
             Route::get('attendance_report', [StudentController::class, 'attendance_report'])->name('attendance_report');
             Route::post('attendance.search', [StudentController::class, 'attendance_search'])->name('attendance.search');
             Route::resource('qui_tea', QuizzeController::class);
-            Route::resource('questions' , QuestionController::class);
-
+            Route::resource('questions', QuestionController::class);
+            Route::resource('online_zoom_classes', OnlineZoomClassesController::class);
+            Route::get('/indirect', [OnlineZoomClassesController::class,'indirectCreate'])->name('indirect.teacher.create');
+            Route::post('/indirect', [OnlineZoomClassesController::class,'storeIndirect'])->name('indirect.teacher.store');
         });
     }
 );
