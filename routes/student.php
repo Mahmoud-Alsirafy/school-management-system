@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Students\Dashboard\ExamController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -15,5 +16,6 @@ Route::group(
     Route::get('/student/dashboard', function () {
         return view('pages.Students.dashboard');
     });
+    Route::resource('student_exams', ExamController::class);
 
 });
