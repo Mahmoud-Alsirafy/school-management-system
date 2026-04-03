@@ -4,100 +4,67 @@ namespace App\Http\Controllers\Teachers\dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Question;
-use App\Models\Quizzes;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
 
-    public function index()
+   public function store(Request $request)
     {
-        $teacherId = Auth::guard('teacher')->id();
-      $quizzes = Quizzes::where('teacher_id' , $teacherId)->get();
-        $questions = Question::where('teacher_id' , $teacherId)->get();
-        return view('pages.Teacher.dashboard.Questions.index',compact('questions'));
-    }
-
-
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        DB::beginTransaction();
         try {
-            Question::create([
-                'title' => $request->title,
-                'answers' => $request->answers,
-                'right_answer' => $request->right_answer,
-                'score' => $request->score,
-                'quizze_id' => $request->quizz_id,
-            ]);
-            DB::commit();
-            toastr()->success(trans('message.success'));
+            $question = new Question();
+            $question->title = $request->title;
+            $question->answers = $request->answers;
+            $question->right_answer = $request->right_answer;
+            $question->score = $request->score;
+            $question->quizze_id = $request->quizz_id;
+            $question->save();
+            toastr()->success(trans('messages.success'));
             return redirect()->back();
-        } catch (\Throwable $e) {
-            DB::rollBack();
-            toastr()->error(trans('message.error'));
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
 
 
-    public function show(string $id)
+    public function show($id)
     {
         $quizz_id = $id;
         return view('pages.Teacher.dashboard.Questions.create', compact('quizz_id'));
     }
 
 
-    public function edit(string $id)
+    public function edit($id)
     {
         $question = Question::findorFail($id);
         return view('pages.Teacher.dashboard.Questions.edit', compact('question'));
     }
 
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        // return $request;
-        DB::beginTransaction();
         try {
-            $question = Question::findOrFail($id);
-            $question->update([
-                'title' => $request->title,
-                'answers' => $request->answers,
-                'right_answer' => $request->right_answer,
-                'score' => $request->score,
-            ]);
-            DB::commit();
-            toastr()->success(trans('message.update'));
+            $question = Question::findorfail($id);
+            $question->title = $request->title;
+            $question->answers = $request->answers;
+            $question->right_answer = $request->right_answer;
+            $question->score = $request->score;
+            $question->save();
+            toastr()->success(trans('messages.Update'));
             return redirect()->back();
-        } catch (\Throwable $e) {
-            DB::rollBack();
-            toastr()->error(trans('message.error'));
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        } catch (\Exception $e) {
+            return redirect()->back()->with(['error' => $e->getMessage()]);
         }
     }
 
 
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        DB::beginTransaction();
-        $question = Question::findOrFail($id);
         try {
-            $question->delete();
-            DB::commit();
-            toastr()->success(trans('message.delete'));
+            Question::destroy($id);
+            toastr()->error(trans('messages.Delete'));
             return redirect()->back();
-        } catch (\Throwable $e) {
-            DB::rollBack();
-            toastr()->error(trans('message.error'));
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
