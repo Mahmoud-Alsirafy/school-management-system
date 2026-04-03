@@ -41,7 +41,7 @@
                                                 <td>{{$quizze->subject->Name}}</td>
                                                 <td>{{$quizze->name}}</td>
                                                 <td>
-                                                    @if($quizze->degree && $quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
+                                                    @if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
                                                         {{$quizze->degree[0]->score}}
                                                     @else
                                                         <a href="{{route('student_exams.show',$quizze->id)}}"

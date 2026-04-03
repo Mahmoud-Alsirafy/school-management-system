@@ -15,6 +15,9 @@ class ExamController extends Controller
         $quizzes = Quizzes::where('grade_id',Auth::user()->Grade_id)
             ->where('classroom_id',Auth::user()->Classroom_id)
             ->where('section_id',Auth::user()->section_id)
+            ->with(['subject', 'degree' => function($query) {
+                $query->where('student_id', Auth::id());
+            }])
             ->orderBy('id', 'DESC')
             ->get();
         return view('pages.Students.dashboard.exams.index', compact('quizzes'));
