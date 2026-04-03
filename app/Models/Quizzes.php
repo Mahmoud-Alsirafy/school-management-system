@@ -22,5 +22,7 @@ class Quizzes extends Model
     public function section () {
         return $this->belongsTo("App\Models\Section","section_id");
     }
-
+    public function subject(){
+        return $this->belongsTo('App\Models\Subject', 'subject_id');
+    }
 }
