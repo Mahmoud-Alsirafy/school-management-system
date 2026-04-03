@@ -10,12 +10,15 @@ Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'auth:student']
-    ], function () {
+    ],
+    function () {
 
-    //==============================dashboard============================
-    Route::get('/student/dashboard', function () {
-        return view('pages.Students.dashboard');
-    });
-    Route::resource('student_exams', ExamController::class);
-
-});
+        //==============================dashboard============================
+        Route::get('/student/dashboard', function () {
+            return view('pages.Students.dashboard');
+        });
+        Route::group(['prefix' => 'Students/dashboard'], function () {
+            Route::resource('student_exams', ExamController::class);
+        });
+    }
+);
