@@ -45,7 +45,7 @@
 
                                 <div class="form-row">
                                     <div class="col">
-                                        <label for="title">{{ __('Teacher_trans.answers') }}</label>
+                                        <label for="title">{{ __('Teacher_trans.answers') }} <span style="color: red; font-size: smaller"> يجب فصل بعلامه - بين الاسئلة</span> </label>
                                         <textarea name="answers" class="form-control" id="exampleFormControlTextarea1"
                                                   rows="4"></textarea>
                                     </div>
