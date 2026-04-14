@@ -42,6 +42,7 @@ Route::group(
             Route::post('/indirect', [OnlineZoomClassesController::class,'storeIndirect'])->name('indirect.teacher.store');
             Route::get('profile',[ProfileController::class,'index'])->name('profile.show');
             Route::post('profile/{id}',[ProfileController::class,'update'])->name('profile.update');
+            Route::get('/student_quizze/{id}',[QuizzeController::class , 'studentQuizze'])->name('student.quizze');
         });
     }
 );

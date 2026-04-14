@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Teachers\dashboard;
 
-use App\Models\Room;
 use App\Models\Grade;
 use App\Models\Quizzes;
-use App\Models\Section;
 use App\Models\Subject;
-use App\Models\Teacher;
 use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Degree;
 use Illuminate\Support\Facades\Auth;
 
 class QuizzeController extends Controller
@@ -130,5 +128,10 @@ class QuizzeController extends Controller
             toastr()->error(trans('message.error'));
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+    }
+
+    public function studentQuizze($quizze_id) {
+        $degrees = Degree::where('quizze_id' , $quizze_id)->get();
+        return view('pages.Teacher.dashboard.Quizzes.student_quizze',compact('degrees'));
     }
 }
