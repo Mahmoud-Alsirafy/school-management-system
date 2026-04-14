@@ -43,6 +43,7 @@ Route::group(
             Route::get('profile',[ProfileController::class,'index'])->name('profile.show');
             Route::post('profile/{id}',[ProfileController::class,'update'])->name('profile.update');
             Route::get('/student_quizze/{id}',[QuizzeController::class , 'studentQuizze'])->name('student.quizze');
+            Route::post('repeat_quizze',[QuizzeController::class , 'repeat_quizze'])->name('repeat.quizze');
         });
     }
 );

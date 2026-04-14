@@ -134,4 +134,10 @@ class QuizzeController extends Controller
         $degrees = Degree::where('quizze_id' , $quizze_id)->get();
         return view('pages.Teacher.dashboard.Quizzes.student_quizze',compact('degrees'));
     }
+
+    public function repeat_quizze (Request $request) {
+        Degree::where('student_id',$request->student_id)->where('quizze_id',$request->quizze_id)->delete();
+        toastr()->success('تم قتح الاختبار مرة اخري للطالب');
+        return redirect()->back();
+    }
 }
