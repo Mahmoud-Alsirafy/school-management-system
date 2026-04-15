@@ -3,6 +3,7 @@
 namespace App\Traits;
 
 use App\Providers\RouteServiceProvider;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 trait AuthTrait
 {
@@ -24,13 +25,13 @@ trait AuthTrait
     public function redirect($request)
     {
         if ($request->type == 'student') {
-            return redirect()->intended(RouteServiceProvider::STUDENT);
+            return redirect()->intended(LaravelLocalization::localizeURL(RouteServiceProvider::STUDENT));
         } elseif ($request->type == 'parent') {
-            return redirect()->intended(RouteServiceProvider::PARENT);
+            return redirect()->intended(LaravelLocalization::localizeURL(RouteServiceProvider::PARENT));
         } elseif ($request->type == 'teacher') {
-            return redirect()->intended(RouteServiceProvider::TEACHER);
+            return redirect()->intended(LaravelLocalization::localizeURL(RouteServiceProvider::TEACHER));
         } else {
-            return redirect()->intended(RouteServiceProvider::HOME);
+            return redirect()->intended(LaravelLocalization::localizeURL(RouteServiceProvider::HOME));
         }
 
     }
