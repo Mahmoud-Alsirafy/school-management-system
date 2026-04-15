@@ -48,9 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="calendar-main mb-30">
-                <livewire:calendarStudent />
-            </div>
+
             <!--=================================
  wrapper -->
 
@@ -66,8 +64,7 @@
  footer -->
 
     @include('layouts.footer-scripts')
-    @livewireScripts
-    @stack('scripts')
+
 </body>
 
 </html>
