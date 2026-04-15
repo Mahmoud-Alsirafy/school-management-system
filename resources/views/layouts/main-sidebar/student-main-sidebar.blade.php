@@ -16,7 +16,7 @@
         <!-- الامتحانات-->
         <li>
             <a href="{{route('student_exams.index')}}"><i class="fas fa-book-open"></i><span
-                    class="right-nav-text">الامتحانات</span></a>
+                    class="right-nav-text">{{trans('main_trans.Exams')}}</span></a>
         </li>
 
 
@@ -39,6 +39,15 @@
             <a href="{{ route('Setting.index') }}">
                 <div class="pull-left"><i class="fas fa-cogs"></i><span
                         class="right-nav-text">{{trans('main_trans.Settings')}}</span></div>
+                <div class="clearfix"></div>
+            </a>
+        </li>
+
+        <!-- Profile-->
+        <li>
+            <a href="{{ route('profile_stu.index') }}">
+                <div class="pull-left"><i class="fas fa-user"></i><span
+                        class="right-nav-text">{{trans('main_trans.Profile')}}</span></div>
                 <div class="clearfix"></div>
             </a>
         </li>

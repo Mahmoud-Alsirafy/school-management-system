@@ -42,6 +42,8 @@ return [
     "current_academic_year"=>"السنة الدراسية الحالية",
     "current_classroom"=>"الصف الدراسي الحالي",
     "current_section"=>"القسم الدراسي الحالي",
+    'show_password' => 'اظهار كلمة المرور',
+    'welcome' => 'مرحبا بك :',
 
 
 

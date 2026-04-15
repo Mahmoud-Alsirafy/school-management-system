@@ -42,4 +42,6 @@ return [
     'current_academic_year' => 'Current Academic Year',
     'current_classroom' => 'Current Classroom',
     'current_section' => 'Current Section',
+    'show_password' => 'Show Password',
+    'welcome' => 'Welcome :',
 ];

@@ -38,6 +38,7 @@
                         <div class="card-body">
                             <form action="{{route('profile.update',$information->id)}}" method="post">
                                 @csrf
+                                @method('PUT')
                                 <div class="row">
                                     <div class="col-sm-3">
                                         <p class="mb-0">اسم المستخدم باللغة العربية</p>

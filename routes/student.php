@@ -19,6 +19,9 @@ Route::group(
         });
         Route::group(['prefix' => 'Students/dashboard'], function () {
             Route::resource('student_exams', ExamController::class);
+            Route::resource('profile_stu', \App\Http\Controllers\Students\Dashboard\Student_profileController::class);
+            Route::post('profile_stu/{id}',[\App\Http\Controllers\Students\Dashboard\Student_profileController::class,'update'])->name('profile.update');
+
         });
     }
 );

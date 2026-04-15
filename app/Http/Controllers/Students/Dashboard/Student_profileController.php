@@ -3,16 +3,19 @@
 namespace App\Http\Controllers\Students\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class profileController extends Controller
+class Student_profileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $information = Student::findorfail(auth()->guard('student')->user()->id);
+        return view('pages.Students.dashboard.profile', compact('information'));
     }
 
     /**
@@ -50,9 +53,23 @@ class profileController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+
+        $information = Student::findorFail($id);
+
+        if (!empty($request->password)) {
+            $information->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $information->password = Hash::make($request->password);
+            $information->save();
+        } else {
+            $information->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
+            $information->save();
+        }
+        toastr()->success(trans('message.update'));
+        return redirect()->back();
+
+
     }
 
     /**

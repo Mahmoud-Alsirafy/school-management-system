@@ -24,6 +24,6 @@ return [
     'Subject' => "Subject",
     'Select_Subject' => '-- Select Subject --',
     'Select_teacher' => '-- Select Teacher --',
-
-
+    'enter_exam' => 'Enter / Exam Score',
+    'take_exam' => 'Take Exam',
 ];

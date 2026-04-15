@@ -3,13 +3,13 @@
     @toastr_css
     @livewireStyles
     @section('title')
-        إجراء اختبار
+        {{ trans('quizze.take_exam') }}
     @stop
 @endsection
 @section('page-header')
     <!-- breadcrumb -->
     @section('PageTitle')
-        إجراء اختبار
+        {{ trans('quizze.take_exam') }}
     @stop
     <!-- breadcrumb -->
 @endsection
