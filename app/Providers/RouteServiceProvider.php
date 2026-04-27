@@ -9,6 +9,6 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/dashboard';
     public const STUDENT = '/student/dashboard';
     public const TEACHER = '/teacher/dashboard';
-    public const PARENT = '/parent/dashboard';
+    public const PARENT = '/Parents/dashboard';
 
 }

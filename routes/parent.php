@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Students\Dashboard\ExamController;
+use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -15,7 +17,8 @@ Route::group(
 
         //==============================dashboard============================
         Route::get('/parent/dashboard', function () {
-            return view('pages.Parent.dashboard');
+            $sons = Student::where('parent_id',Auth::guard('parent')->user()->id)->get();
+            return view('pages.Parents.dashboard',compact('sons'));
         });
         Route::group(['prefix' => 'Parents/dashboard'], function () {
             Route::resource('student_exams', ExamController::class);
