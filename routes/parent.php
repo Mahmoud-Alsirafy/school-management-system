@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Students\Dashboard\ExamController;
+use App\Http\Controllers\Parent\Dashboard\ChildrenController;
 use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,11 +20,10 @@ Route::group(
             $sons = Student::where('parent_id',Auth::guard('parent')->user()->id)->get();
             return view('pages.Parents.dashboard',compact('sons'));
         });
-        Route::group(['prefix' => 'Parents/dashboard'], function () {
-            Route::resource('student_exams', ExamController::class);
-            Route::resource('profile_stu', \App\Http\Controllers\Students\Dashboard\Student_profileController::class);
-            Route::post('profile_stu/{id}',[\App\Http\Controllers\Students\Dashboard\Student_profileController::class,'update'])->name('profile.update');
-
+        Route::group(['prefix' => 'Parent/Dashboard'], function () {
+            Route::get("childern" , [ChildrenController::class,'index'])->name('sons');
+            Route::get("results/{id}" , [ChildrenController::class,'results'])->name('sons.results');
+            Route::get("attendances/{id}" , [ChildrenController::class,'attendances'])->name('sons.attendances');
         });
     }
 );
